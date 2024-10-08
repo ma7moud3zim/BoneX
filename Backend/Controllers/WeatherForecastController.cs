@@ -1,6 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BoneX.Controllers
+namespace Backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -18,6 +19,7 @@ namespace BoneX.Controllers
             _logger = logger;
         }
 
+        [Authorize(Roles = "Patient")]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
