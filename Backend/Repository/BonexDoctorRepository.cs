@@ -14,6 +14,11 @@ namespace Backend.Repository
             Context = context;
         }
 
+        public Doctor? GetDetailsByUserName(string UserName)
+        {
+            
+             return Context.Doctors.FirstOrDefault(p => p.Username == UserName);
+        }
 
         public void Insert(Doctor doctor)
         {
