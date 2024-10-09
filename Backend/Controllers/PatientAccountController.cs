@@ -15,7 +15,7 @@ namespace Backend.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITokenService _tokenService;
-        private IPatientRepository _patientRepository;
+        private readonly IPatientRepository _patientRepository;
         public PatientAccountController(UserManager<ApplicationUser> userManager, ITokenService tokenService,IPatientRepository patientRepository)
         {
             _userManager = userManager;
@@ -55,7 +55,8 @@ namespace Backend.Controllers
                           
                         await _userManager.DeleteAsync(user);
                         
-                        return BadRequest(ex.Message);
+                        return BadRequest(new { message = ex.Message });
+                        
                     }
 
                     await _userManager.AddToRoleAsync(user, "Patient");
@@ -83,7 +84,7 @@ namespace Backend.Controllers
                     return BadRequest(result.Errors);
                 }
             }
-            return BadRequest("Invalid model");
+            return BadRequest(new { message = "Invalid model" });
         }
        
 
