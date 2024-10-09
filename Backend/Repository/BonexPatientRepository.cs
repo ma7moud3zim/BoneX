@@ -11,9 +11,15 @@ namespace Backend.Repository
         {
             Context = _BonexDBContext;
         }
-        public void Insert(Patient item)
+
+        public Patient? GetDetailsByUserName(string UserName)
         {
-            Context.Patients.Add(item);
+          return Context.Patients.FirstOrDefault(p=>p.Username==UserName);    
+        }
+
+        public void Insert(Patient Patient)
+        {
+            Context.Patients.Add(Patient);
             Context.SaveChanges();  
         }
     }

@@ -9,11 +9,6 @@ namespace Backend.Models
         Doctor = 2,
         Admin = 3,
     }
-    public enum AccountStatus : short
-    {
-        Banned = 0,
-        Active=1
-    }
     public abstract class Person
     {
         [Key]  // This makes Username the primary key
@@ -34,7 +29,6 @@ namespace Backend.Models
 
         public byte[]? ImageData { get; set; }//= File.ReadAllBytes(Path.Combine(Directory.GetCurrentDirectory(), "img"));
         public Role Role { get; set; } = Role.Patient;    
-        public AccountStatus AccountStatus { get; set; }= AccountStatus.Active;
 
     }
 }

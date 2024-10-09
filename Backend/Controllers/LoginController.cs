@@ -24,14 +24,24 @@ namespace Backend.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] RegisterPatientDto model)
+        public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             
             if (ModelState.IsValid)
             {
-                var user = await _userManager.FindByNameAsync(model.UserName);
+                ApplicationUser? user =null;
+                if (model.UserName!=null)
+                 user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (model.Email != null)
+                    user = await _userManager.FindByEmailAsync(model.Email);
+
                 if (user != null)
                 {
+                    if(user.AccountStatus == AccountStatus.Banned)
+                    {
+                        return Forbid();
+                    }
                     if (await _userManager.CheckPasswordAsync(user, model.Password))
                     {
                         var token = await _tokenService.CreateToken(user);

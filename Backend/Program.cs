@@ -98,6 +98,7 @@ namespace Backend
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IPatientRepository, BonexPatientRepository>();
             builder.Services.AddScoped<IDoctorRepository, BonexDoctorRepository>();
+            builder.Services.AddScoped<IAdminRepository, BonexAdminRepository>();
 
 
             /*-----------------------------Swagger PArt-----------------------------*/
