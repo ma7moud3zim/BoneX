@@ -4,6 +4,6 @@ namespace Backend.Interfaces
 {
     public interface IPatientRepository
     {
-        void Insert(Patient item);
+      public void Insert(Patient item);
     }
 }
