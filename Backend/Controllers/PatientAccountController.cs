@@ -73,9 +73,8 @@ namespace Backend.Controllers
 
                     Response.Cookies.Append("AuthToken", token, cookieOptions);
 
-                  
-
-                    return Ok(new { message = "register successful" });
+                    
+                    return Ok(new { message = "register successful" , role= "Patient"});
                 }
                 else
                 {

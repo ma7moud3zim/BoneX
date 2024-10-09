@@ -49,7 +49,8 @@ namespace Backend.Controllers
 
                         // Generate a JWT or any other token
 
-                        return Ok(new { message = "Login successful" });
+                        var role = await _userManager.GetRolesAsync(user);
+                        return Ok(new { message = "Login successful" , role = role[0] });
 
                     }
 
