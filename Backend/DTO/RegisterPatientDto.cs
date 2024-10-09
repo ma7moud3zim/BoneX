@@ -22,7 +22,8 @@ namespace Backend.DTO
         public string? LastName { get; set; }
 
     //    [Required]
-        public int age { get; set; }    
+        public int Age { get; set; }
+        public string? Gender { get; set; }    
 
     }
 }

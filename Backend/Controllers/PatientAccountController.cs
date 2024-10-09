@@ -37,11 +37,13 @@ namespace Backend.Controllers
                     Patient patient = new Patient()
                     {
                         Username = model.UserName,
-                        Age = model.age,
+                        Age = model.Age,
                         AccountStatus = AccountStatus.Active,
                         Role = Role.Patient,
                         FirstName = model.FirstName,
-                        LastName = model.LastName
+                        LastName = model.LastName,
+                        Gender = model.Gender   
+                        
                     };
 
                     try
