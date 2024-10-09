@@ -35,11 +35,23 @@ namespace Backend.Controllers
                string? UserName = User.FindFirst("UserName")?.Value;
 
                 if(UserName != null) {
-                    Patient? patient = _PatientRepository.GetDetailsByUserName(UserName);  
-                    if (patient != null)
+                    Patient? Patient = _PatientRepository.GetDetailsByUserName(UserName);
+                    if (Patient != null)
                     {
-                        return Ok(new { Message = "data retrieved successfully", patient });
-                    } 
+                        PatientFullDetailsDto PatientDetails = new PatientFullDetailsDto
+                        {
+                            Username = UserName,
+                            Age = Patient.Age,
+                            FirstName = Patient.FirstName,
+                            LastName = Patient.LastName,
+                            Gender = Patient.Gender,
+                            ImageData = Patient.ImageData,
+                            DateOfBirth = Patient.DateOfBirth,
+                            MedicalHistory=Patient.MedicalHistory,  
+                        };
+
+                        return Ok(new { Message = "data retrieved successfully", PatientDetails });
+                    }
                 }
                 
 
@@ -48,6 +60,38 @@ namespace Backend.Controllers
             return BadRequest();    
         }
 
+
+        [HttpGet("details/{UserName}")]
+        public IActionResult GetDetailsUsingUserName(string UserName)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (UserName != null)
+                {
+                    Patient? Patient = _PatientRepository.GetDetailsByUserName(UserName);
+                    if (Patient != null)
+                    {
+                        PatientDetailsDto PatientDetails = new PatientDetailsDto
+                        {
+                            Username = UserName,
+                            Age = Patient.Age,
+                            FirstName = Patient.FirstName,
+                            LastName = Patient.LastName,
+                            Gender = Patient.Gender,
+                            ImageData = Patient.ImageData
+                        };
+
+                        return Ok(new { Message = "data retrieved successfully", PatientDetails });
+                    }
+                }
+
+
+
+            }
+            return BadRequest();
+        }
 
 
 

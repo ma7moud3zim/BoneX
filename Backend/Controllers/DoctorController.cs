@@ -1,4 +1,5 @@
-﻿using Backend.Interfaces;
+﻿using Backend.DTO;
+using Backend.Interfaces;
 using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -10,7 +11,6 @@ namespace Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Doctor")]
     public class DoctorController : ControllerBase
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -25,7 +25,8 @@ namespace Backend.Controllers
             _doctorRepository = doctorRepository;
         }
         [HttpGet("details")]
-        public IActionResult GetDetailsByUserName()
+        [Authorize(Roles = "Doctor")]
+        public IActionResult GetDetailsUsingJWTToken()
         {
 
             if (ModelState.IsValid)
@@ -37,7 +38,50 @@ namespace Backend.Controllers
                     Doctor? Doctor = _doctorRepository.GetDetailsByUserName(UserName);
                     if (Doctor != null)
                     {
-                        return Ok(new { Message = "data retrieved successfully", Doctor });
+                        DoctorDetailsDto DoctorDetails = new DoctorDetailsDto
+                        {
+                            Username = UserName,
+                            Age = Doctor.Age,
+                            ClinicAdress = Doctor.ClinicAdress,
+                            ExperienceYears = Doctor.ExperienceYears,
+                            FirstName = Doctor.FirstName,
+                            LastName = Doctor.LastName,
+                            Gender = Doctor.Gender,
+                            ImageData = Doctor.ImageData
+
+
+                        };
+                        return Ok(new { Message = "data retrieved successfully", DoctorDetails });
+                    }
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpGet("details/{UserName}")]
+        public IActionResult GetDetailsUsingUserName(string UserName)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (UserName != null)
+                {
+                    Doctor? Doctor = _doctorRepository.GetDetailsByUserName(UserName);
+                    if (Doctor != null)
+                    {
+                        DoctorDetailsDto DoctorDetails=new DoctorDetailsDto {
+                           Username = UserName,
+                           Age = Doctor.Age,
+                           ClinicAdress = Doctor.ClinicAdress,
+                           ExperienceYears= Doctor.ExperienceYears, 
+                           FirstName = Doctor.FirstName,
+                           LastName = Doctor.LastName,  
+                           Gender = Doctor.Gender,
+                           ImageData=Doctor.ImageData                        
+                        };
+
+                        return Ok(new { Message = "data retrieved successfully", DoctorDetails });
                     }
                 }
 
@@ -46,7 +90,5 @@ namespace Backend.Controllers
             }
             return BadRequest();
         }
-
-
     }
 }
