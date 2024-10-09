@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -27,14 +28,6 @@ namespace Backend.Controllers
             _doctorRepository = doctorRepository;
         }
 
-
-
-
-
-
-
-
-
         [HttpPost("RegisterDoctor")]
         public async Task<IActionResult> RegisterDoctor([FromBody] RegisterDoctorDto model)
         {
@@ -49,7 +42,6 @@ namespace Backend.Controllers
                     {
                         Username = model.UserName,
                         Age = model.Age,
-                        AccountStatus = AccountStatus.Active,
                         Role = Role.Admin,
                         FirstName = model.FirstName,
                         LastName = model.LastName,
@@ -81,5 +73,73 @@ namespace Backend.Controllers
 
             return BadRequest();
         }
+
+        [HttpPatch("BanUser")]
+        public async Task< IActionResult> BanUserUserName([FromBody] string UserName)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (UserName != null)
+                {
+                   
+                    var U= await _userManager.FindByNameAsync(UserName);
+                    if (U != null)
+                    {
+                        var roles = await _userManager.GetRolesAsync(U);
+                        var RequesterRole = User.FindFirst(ClaimTypes.Role)?.Value;
+                        if (roles.Any(r=>(r== "MainAdmin"||(r =="Admin"&& RequesterRole!= "MainAdmin")))) 
+                            return BadRequest();
+                    
+                            U.AccountStatus = AccountStatus.Banned;
+                            await _userManager.UpdateAsync(U);
+                        return Ok(new { message = "User Account Banned successfully" });
+
+                    }
+
+                }
+
+
+
+            }
+            return BadRequest();
+        }
+
+        [HttpPatch("UnbanUser")]
+        public async Task<IActionResult> UnbanUserUserName([FromBody]string UserName)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (UserName != null)
+                {
+                    var U = await _userManager.FindByNameAsync(UserName);
+                    if (U != null)
+                    {
+                        var roles = await _userManager.GetRolesAsync(U);
+
+                        var RequesterRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                        if (roles.Any(r => (r == "Admin" && RequesterRole == "Admin")))
+                            return BadRequest();
+                        
+
+                        U.AccountStatus = AccountStatus.Active;
+                         await _userManager.UpdateAsync(U);    
+                         return Ok(new { message = "User Account unbanned successfully" });
+
+                    }
+                    
+                }
+
+
+
+            }
+            return BadRequest();
+        }
+
+
     }
 }

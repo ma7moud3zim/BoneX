@@ -38,6 +38,10 @@ namespace Backend.Controllers
 
                 if (user != null)
                 {
+                    if(user.AccountStatus == AccountStatus.Banned)
+                    {
+                        return Forbid();
+                    }
                     if (await _userManager.CheckPasswordAsync(user, model.Password))
                     {
                         var token = await _tokenService.CreateToken(user);

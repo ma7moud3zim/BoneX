@@ -38,7 +38,6 @@ namespace Backend.Controllers
                     {
                         Username = model.UserName,
                         Age = model.Age,
-                        AccountStatus = AccountStatus.Active,
                         Role = Role.Patient,
                         FirstName = model.FirstName,
                         LastName = model.LastName,

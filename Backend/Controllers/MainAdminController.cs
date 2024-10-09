@@ -35,7 +35,6 @@ namespace Backend.Controllers
                     {
                         Username = model.UserName,
                         Age = model.Age,
-                        AccountStatus = AccountStatus.Active,
                         Role = Role.Admin,
                         FirstName = model.FirstName,
                         LastName = model.LastName,
@@ -46,7 +45,10 @@ namespace Backend.Controllers
                     try
                     {
                         _AdminRepository.Insert(admin);
+                       
                         await _userManager.AddToRoleAsync(user, "Admin");
+                     
+
                     }
                     catch (Exception ex) {
                         await _userManager.DeleteAsync(user);
