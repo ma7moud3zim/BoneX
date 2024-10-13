@@ -93,6 +93,20 @@ namespace Backend.Controllers
             return BadRequest();
         }
 
+        [HttpPut("UpdatePatientDetails")]
+      //  [Authorize] 
+        public async Task<IActionResult> UpdatePatientDetails([FromBody] UpdatePatientDto updatePatientDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _PatientRepository.UpdatePatientDetailsAsync(updatePatientDto);
+            if (result is null)
+                return NotFound(new { message = "Patient not found" });
+
+            return Ok(new { message = "Patient updated successfully" });
+        }
+
 
 
     }
