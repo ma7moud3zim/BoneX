@@ -74,7 +74,7 @@ namespace Backend.Controllers
             return BadRequest();
         }
 
-        [HttpPatch("BanUser")]
+        [HttpPut("BanUser")]
         public async Task< IActionResult> BanUserUserName([FromBody] string UserName)
         {
 
@@ -106,7 +106,7 @@ namespace Backend.Controllers
             return BadRequest();
         }
 
-        [HttpPatch("UnbanUser")]
+        [HttpPut("UnbanUser")]
         public async Task<IActionResult> UnbanUserUserName([FromBody]string UserName)
         {
 
