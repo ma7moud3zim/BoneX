@@ -9,7 +9,7 @@ namespace Backend.Interfaces
         public Patient? GetDetailsByUserName(string UserName);
         public void Insert(Patient Patient);
 
-        Task<Patient?> UpdatePatientDetailsAsync(UpdatePatientDto updatePatientDto);
+        Task<Patient?> UpdatePatientDetailsAsync(string username, UpdatePatientDto updatePatientDto);
 
     }
 }

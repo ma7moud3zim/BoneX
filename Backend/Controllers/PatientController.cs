@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Backend.Controllers
 {
@@ -100,11 +101,20 @@ namespace Backend.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _PatientRepository.UpdatePatientDetailsAsync(updatePatientDto);
-            if (result is null)
-                return NotFound(new { message = "Patient not found" });
+            // first i must know the username of the patient who is updating his details
+            // to ensure that the patient is updating his own details not others
 
-            return Ok(new { message = "Patient updated successfully" });
+            var tokenUsername = User.FindFirst("UserName")?.Value;
+
+            if (string.IsNullOrEmpty(tokenUsername))
+                return Unauthorized("You must be logged in to update your details.");
+
+            var result = await _PatientRepository.UpdatePatientDetailsAsync(tokenUsername, updatePatientDto);
+
+            if (result is null)
+                return BadRequest("Failed to update patient details.");
+
+            return Ok("Patient details updated successfully.");
         }
 
 

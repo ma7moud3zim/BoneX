@@ -9,12 +9,11 @@ namespace Backend.Repository
     public class BonexPatientRepository : IPatientRepository
     {
         BonexDBContext Context;
-        private readonly BonexDBContext _context;
+
 
         public BonexPatientRepository(BonexDBContext _BonexDBContext, BonexDBContext context)
         {
             Context = _BonexDBContext;
-            _context = context;
         }
 
         public Patient? GetDetailsByUserName(string UserName)
@@ -28,9 +27,11 @@ namespace Backend.Repository
             Context.SaveChanges();  
         }
 
-        public async Task<Patient?> UpdatePatientDetailsAsync(UpdatePatientDto updatePatientDto)
+        
+
+        public async Task<Patient?> UpdatePatientDetailsAsync(string username, UpdatePatientDto updatePatientDto)
         {
-            var patient = await _context.Patients.FirstOrDefaultAsync(p => p.Username == updatePatientDto.UserName);
+            var patient = await Context.Patients.FirstOrDefaultAsync(p => p.Username == username);
 
             if (patient is null)
                 return null;
@@ -42,10 +43,11 @@ namespace Backend.Repository
             patient.Gender = updatePatientDto.Gender ?? patient.Gender;
 
             // Save to the database
-            _context.Update(patient);
-            await _context.SaveChangesAsync();
+            Context.Update(patient);
+            await Context.SaveChangesAsync();
 
             return patient;
         }
+
     }
 }
