@@ -42,8 +42,13 @@ namespace Backend.Repository
             patient.Age = updatePatientDto.Age ?? patient.Age;
             patient.Gender = updatePatientDto.Gender ?? patient.Gender;
 
-            // Save to the database
-            Context.Update(patient);
+            patient.ImageData = updatePatientDto.ImageData ?? patient.ImageData;
+            patient.DateOfBirth = updatePatientDto.DateOfBirth ?? patient.DateOfBirth;
+            patient.MedicalHistory = updatePatientDto.MedicalHistory ?? patient.MedicalHistory;
+
+
+        // Save to the database
+        Context.Update(patient);
             await Context.SaveChangesAsync();
 
             return patient;
