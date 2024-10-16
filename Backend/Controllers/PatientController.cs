@@ -33,9 +33,10 @@ namespace Backend.Controllers
 
             if (ModelState.IsValid)
             {
-               string? UserName = User.FindFirst("UserName")?.Value;
+                string? UserName = User.FindFirst("UserName")?.Value;
 
-                if(UserName != null) {
+                if (UserName != null)
+                {
                     Patient? Patient = _PatientRepository.GetDetailsByUserName(UserName);
                     if (Patient != null)
                     {
@@ -48,17 +49,17 @@ namespace Backend.Controllers
                             Gender = Patient.Gender,
                             ImageData = Patient.ImageData,
                             DateOfBirth = Patient.DateOfBirth,
-                            MedicalHistory=Patient.MedicalHistory,  
+                            MedicalHistory = Patient.MedicalHistory,
                         };
 
                         return Ok(new { Message = "data retrieved successfully", PatientDetails });
                     }
                 }
-                
+
 
 
             }
-            return BadRequest();    
+            return BadRequest();
         }
 
 
@@ -95,7 +96,7 @@ namespace Backend.Controllers
         }
 
         [HttpPut("UpdatePatientDetails")]
-      //  [Authorize] 
+        //  [Authorize] 
         public async Task<IActionResult> UpdatePatientDetails([FromBody] UpdatePatientDto updatePatientDto)
         {
             if (!ModelState.IsValid)
@@ -111,13 +112,29 @@ namespace Backend.Controllers
 
             var result = await _PatientRepository.UpdatePatientDetailsAsync(tokenUsername, updatePatientDto);
 
-            if (result is null)
+            if (!result)
                 return BadRequest("Failed to update patient details.");
 
             return Ok("Patient details updated successfully.");
         }
 
 
+        [HttpPut("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            var tokenUsername = User.FindFirst("UserName")?.Value;
+
+            if (string.IsNullOrEmpty(tokenUsername))
+                return Unauthorized("You must be logged in to reset your password.");
+
+            var result = await _PatientRepository.ResetPasswordAsync(tokenUsername, resetPasswordDto.CurrentPassword, resetPasswordDto.NewPassword);
+
+            if (!result)
+                return BadRequest("Failed to reset password.");
+
+            return Ok("Password reset successfully.");
+
+        }
 
     }
 }

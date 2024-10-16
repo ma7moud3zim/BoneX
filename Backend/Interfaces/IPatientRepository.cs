@@ -9,7 +9,8 @@ namespace Backend.Interfaces
         public Patient? GetDetailsByUserName(string UserName);
         public void Insert(Patient Patient);
 
-        Task<Patient?> UpdatePatientDetailsAsync(string username, UpdatePatientDto updatePatientDto);
+        Task<bool> UpdatePatientDetailsAsync(string username, UpdatePatientDto updatePatientDto);
+        Task<bool> ResetPasswordAsync(string username, string currentPassword, string newPassword);
 
     }
 }
