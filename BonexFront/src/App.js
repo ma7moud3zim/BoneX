@@ -4,7 +4,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import NavigationBar from './components/Navbar';
 import Home from './Home';
-
+import Consultion from './consutlion'
+import EditProfile from './update-profile';
 function App() {
   return (
     <Router>
@@ -13,6 +14,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/consultion" element={<Consultion />} />
+        <Route path="/editprofile" element={<EditProfile />} />
 
       </Routes>
     </Router>

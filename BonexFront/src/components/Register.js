@@ -52,17 +52,30 @@ function Register() {
 
     if (flag) {
       axios
-        .post("https://localhost:44370/api/Account/Register", {
-          UserName: formData.username,
+        .post("https://localhost:7294/api/PatientAccount/register", {
+          userName: formData.username,
           Email: formData.email,
-          Password: formData.password,
-          PhoneNumber: formData.phoneNumber,
-          Gender: formData.gender,
+          password: formData.password,
+          phone: formData.phoneNumber,
+          gender: formData.gender,
+          firstName:formData.username
+
+          /*
+          "userName": "string",
+  "password": "string",
+  "email": "user@example.com",
+  "phone": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "age": 0,
+  "gender": "string"
+          */ 
+        },
+        {
+          withCredentials: true
         })
         .then((res) => {
           console.log(res);
-          window.localStorage.setItem("username", formData.username);
-          window.location.pathname = "/home";
         })
         .catch((error) => {
           console.error("There was an error during registration!", error);
