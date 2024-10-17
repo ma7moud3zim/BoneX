@@ -4,9 +4,6 @@ namespace Backend.DTO;
 
 public class UpdatePatientDto
 {
-    [Required]
-    public string UserName { get; set; }
-
     public string FirstName { get; set; }
 
     public string? LastName { get; set; }
@@ -15,8 +12,10 @@ public class UpdatePatientDto
 
     public string? Gender { get; set; }
 
-    public string? MedicalHistory { get; internal set; }
+    public byte[]? ImageData { get; set; }
 
+    public DateOnly? DateOfBirth { get; set; }
+    public string? MedicalHistory { get; set; }
 
 
 }
