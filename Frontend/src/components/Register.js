@@ -62,13 +62,13 @@ function Register() {
 
           /*
           "userName": "string",
-  "password": "string",
-  "email": "user@example.com",
-  "phone": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "age": 0,
-  "gender": "string"
+          "password": "string",
+          "email": "user@example.com",
+          "phone": "string",
+          "firstName": "string",
+          "lastName": "string",
+          "age": 0,
+          "gender": "string"
           */ 
         },
         {

@@ -9,9 +9,11 @@ using System.Security.Claims;
 
 namespace Backend.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     [Authorize(Roles = "MainAdmin,Admin")]
+
     public class AdminController : ControllerBase
     {
 
@@ -20,7 +22,8 @@ namespace Backend.Controllers
         private readonly IAdminRepository _AdminRepository;
         private readonly IDoctorRepository _doctorRepository;
 
-        public AdminController(UserManager<ApplicationUser> userManager, ITokenService tokenService, IAdminRepository AdminRepository,IDoctorRepository doctorRepository)
+        public AdminController(UserManager<ApplicationUser> userManager, ITokenService tokenService, 
+            IAdminRepository AdminRepository,IDoctorRepository doctorRepository)
         {
             _userManager = userManager;
             _tokenService = tokenService;
