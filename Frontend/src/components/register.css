@@ -1,0 +1,45 @@
+/* Main background */
+.register-container {
+    background-color: #EBF4F6;
+  }
+  
+  /* Form box */
+  .register-form {
+    background-color: white;
+    border: 2px solid #37B7C3;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .register-header {
+    color: #071952;
+  }
+  
+  /* Form labels */
+  .form-label {
+    color: #071952;
+  }
+  
+  /* Button colors */
+  .btn-dark {
+    background-color: #37B7C3;
+    border-color: #37B7C3;
+  }
+  
+  .btn-dark:hover {
+    background-color: #088395;
+    border-color: #088395;
+  }
+  
+  /* Password toggle button */
+  .password-toggle-btn {
+    background-color: #37B7C3;
+    border: none;
+  }
+  
+  .password-toggle-btn:hover {
+    background-color: #088395;
+  }
+  

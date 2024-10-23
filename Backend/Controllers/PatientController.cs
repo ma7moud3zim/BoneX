@@ -77,7 +77,7 @@ namespace Backend.Controllers
                     {
                         PatientDetailsDto PatientDetails = new PatientDetailsDto
                         {
-                            Username = UserName,
+                            UserName = UserName,
                             Age = Patient.Age,
                             FirstName = Patient.FirstName,
                             LastName = Patient.LastName,

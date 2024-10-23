@@ -91,7 +91,7 @@ namespace Backend
                     // allow any domain , allow using any method , allow using any thing in heasder , allow sending cookies
                     //AllowAnyOrigin()
                     //
-                    policy.WithOrigins("http://localhost:5173", "https://localhost:44371/swagger").AllowAnyMethod().AllowAnyHeader().AllowCredentials();   
+                    policy.WithOrigins("http://localhost:3000", "https://localhost:7294/swagger").AllowAnyMethod().AllowAnyHeader().AllowCredentials();   
                 });
             });
 

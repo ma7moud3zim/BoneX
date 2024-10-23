@@ -6,16 +6,18 @@ import NavigationBar from './components/Navbar';
 import Home from './Home';
 import Consultion from './consutlion'
 import EditProfile from './update-profile';
+import Changepassword from './changepassword';
 function App() {
   return (
     <Router>
       <NavigationBar />
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/consultion" element={<Consultion />} />
         <Route path="/editprofile" element={<EditProfile />} />
+        <Route path="/changepassword" element={<Changepassword />} />
 
       </Routes>
     </Router>

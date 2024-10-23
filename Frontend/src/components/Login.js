@@ -1,25 +1,21 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { Form, Button, Container, InputGroup, Alert } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { toggleState } from '../RTK/slices/usersActiveslice';
-import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
-import './login.css'; // Assuming you have custom styles in Login.css
+import axios from "axios";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import "./login.css";
 
 function Login() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // State to track form data
   const [formData, setFormData] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
   // State to track login error
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,89 +24,98 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMessage(''); // Clear error message before submission
+    setErrorMessage(""); // Clear error message before submission
 
-    if (formData.username !== '' && formData.password !== '') {
+    if (formData.username !== "" && formData.password !== "") {
       try {
         const response = await axios.post(
-          'https://localhost:7294/api/Login',
+          "https://localhost:7294/api/Login",
           {
             UserName: formData.username,
             Password: formData.password,
           },
           {
-            withCredentials: true // Ensures that cookies (AuthToken) are sent
+            withCredentials: true, // Ensures that cookies (AuthToken) are sent
           }
         );
 
-        console.log(response); // Check if the response is coming as expected
-        dispatch(toggleState('yes')); // Dispatch action to change isActive to true
+        window.sessionStorage.setItem("IsUserActive", "true");
+        window.sessionStorage.setItem("UserInfo", JSON.stringify(response.data.user));
 
         // Only navigate if the AuthToken is retrieved or exists
-        navigate('/home');
+        navigate("/");
       } catch (error) {
-        console.error('Login failed:', error);
-        setErrorMessage('Username or Password is incorrect'); // Set error message
+        console.error("Login failed:", error);
+        setErrorMessage("Username or Password is incorrect"); // Set error message
       }
     } else {
-      setErrorMessage('Please fill in both fields'); // Handle case where fields are empty
+      setErrorMessage("Please fill in both fields"); // Handle case where fields are empty
     }
   };
 
   return (
-    <Container className="d-flex align-items-center justify-content-center vh-100">
-      <div className="p-4 login-form" style={{ maxWidth: '400px', width: '100%' }}>
+    <div className="d-flex align-items-center justify-content-center vh-100">
+      <div
+        className="p-4 login-form"
+        style={{ maxWidth: "400px", width: "100%" }}
+      >
         <h2 className="text-center mb-4">Login</h2>
-        
-        {/* Display error message if exists */}
-        {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
 
-        <Form onSubmit={handleSubmit}>
+        {/* Display error message if exists */}
+        {errorMessage && (
+          <div className="alert alert-danger" role="alert">
+            {errorMessage}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
           {/* Username Input */}
-          <Form.Group className="mb-3" controlId="formUsername">
-            <Form.Label>Username</Form.Label>
-            <InputGroup>
-              <InputGroup.Text>
+          <div className="mb-3">
+            <label htmlFor="formUsername" className="form-label">Username</label>
+            <div className="input-group">
+              <span className="input-group-text">
                 <FontAwesomeIcon icon={faUser} />
-              </InputGroup.Text>
-              <Form.Control
+              </span>
+              <input
                 type="text"
-                placeholder="Enter username"
+                className="form-control"
+                id="formUsername"
                 name="username"
+                placeholder="Enter username"
                 value={formData.username}
                 onChange={handleInputChange}
                 required
-                className="rounded-start" // For rounded left corners
               />
-            </InputGroup>
-          </Form.Group>
+            </div>
+          </div>
 
           {/* Password Input */}
-          <Form.Group className="mb-3" controlId="formPassword">
-            <Form.Label>Password</Form.Label>
-            <InputGroup>
-              <InputGroup.Text>
-                <FontAwesomeIcon icon={faLock} />
-              </InputGroup.Text>
-              <Form.Control
+          <div className="mb-3">
+            <label htmlFor="formPassword" className="form-label">Password</label>
+            <div className="input-group">
+              <span className="input-group-text" style={{backgroundColor:'transparent'}}>
+                <FontAwesomeIcon icon={faLock}  />
+              </span>
+              <input
                 type="password"
-                placeholder="Enter password"
+                className="form-control"
+                id="formPassword"
                 name="password"
+                placeholder="Enter password"
                 value={formData.password}
                 onChange={handleInputChange}
                 required
-                className="rounded-start"
               />
-            </InputGroup>
-          </Form.Group>
+            </div>
+          </div>
 
           {/* Submit Button */}
-          <Button variant="dark" type="submit" className="w-100 login-btn">
+          <button type="submit" className="btn btn-dark w-100 login-btn">
             Login
-          </Button>
-        </Form>
+          </button>
+        </form>
       </div>
-    </Container>
+    </div>
   );
 }
 

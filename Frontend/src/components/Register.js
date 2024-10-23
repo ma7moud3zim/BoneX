@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 import {
   Form,
   Button,
@@ -14,7 +15,7 @@ import {
 
 function Register() {
   const [formData, setFormData] = useState({
-    username: "",
+    userName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -26,7 +27,7 @@ function Register() {
   const [accept, setAccept] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -40,7 +41,7 @@ function Register() {
     let flag = true;
 
     if (
-      formData.username === "" ||
+      formData.userName === "" ||
       formData.email === "" ||
       formData.password.length < 8 ||
       formData.password !== formData.confirmPassword ||
@@ -52,36 +53,32 @@ function Register() {
 
     if (flag) {
       axios
-        .post("https://localhost:7294/api/PatientAccount/register", {
-          userName: formData.username,
-          Email: formData.email,
-          password: formData.password,
-          phone: formData.phoneNumber,
-          gender: formData.gender,
-          firstName:formData.username
-
-          /*
-          "userName": "string",
-  "password": "string",
-  "email": "user@example.com",
-  "phone": "string",
-  "firstName": "string",
-  "lastName": "string",
-  "age": 0,
-  "gender": "string"
-          */ 
-        },
-        {
-          withCredentials: true
-        })
+        .post(
+          "https://localhost:7294/api/PatientAccount/register",
+          {
+            userName: formData.userName,
+            Email: formData.email,
+            password: formData.password,
+            phone: formData.phoneNumber,
+            gender: formData.gender,
+            firstName: formData.userName
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .then((res) => {
           console.log(res);
+          window.sessionStorage.setItem("IsUserActive", "true");
+          console.log(formData)
+          window.sessionStorage.setItem("UserInfo", JSON.stringify(formData));
+          console.log("Registration data:", formData);
+
+          navigate("/");
         })
         .catch((error) => {
           console.error("There was an error during registration!", error);
         });
-
-      console.log("Registration data:", formData);
     } else {
       console.log("Form validation failed.");
     }
@@ -92,7 +89,9 @@ function Register() {
   };
 
   const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword((prevShowConfirmPassword) => !prevShowConfirmPassword);
+    setShowConfirmPassword(
+      (prevShowConfirmPassword) => !prevShowConfirmPassword
+    );
   };
 
   return (
@@ -102,13 +101,13 @@ function Register() {
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col md={6}>
-              <Form.Group className="mb-3" controlId="formUsername">
-                <Form.Label>Username</Form.Label>
+              <Form.Group className="mb-3" controlId="formuserName">
+                <Form.Label>userName</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Enter name"
-                  name="username"
-                  value={formData.username}
+                  name="userName"
+                  value={formData.userName}
                   onChange={handleInputChange}
                   required
                 />
@@ -146,9 +145,7 @@ function Register() {
                     variant="outline-primary"
                     onClick={togglePasswordVisibility}
                   >
-                    <FontAwesomeIcon
-                      icon={showPassword ? faEyeSlash : faEye}
-                    />
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
                   </Button>
                 </div>
                 {formData.password.length < 8 && accept && (

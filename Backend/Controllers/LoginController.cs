@@ -29,6 +29,7 @@ namespace Backend.Controllers
             
             if (ModelState.IsValid)
             {
+
                 ApplicationUser? user =null;
                 if (model.UserName!=null)
                  user = await _userManager.FindByNameAsync(model.UserName);
@@ -60,7 +61,19 @@ namespace Backend.Controllers
                         // Generate a JWT or any other token
 
                         var role = await _userManager.GetRolesAsync(user);
-                        return Ok(new { message = "Login successful" , role = role[0] });
+
+                        var patient = _patientRepository.GetDetailsByUserName(user.UserName);
+                        PatientDetailsDto patientdto = new PatientDetailsDto()
+                        {
+                            Gender = patient.Gender,
+                            Age = patient.Age,
+                            UserName = patient.Username,
+                            DateOfBirth = patient.DateOfBirth,
+                            Email = user.Email,
+                            PhoneNumber = user.PhoneNumber
+
+                        };
+                        return Ok(new { message = "Login successful" , role = role[0],User=patientdto});
 
                     }
 

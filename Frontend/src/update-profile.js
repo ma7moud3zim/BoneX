@@ -1,25 +1,54 @@
-import React, { useState } from 'react';
-import { Form, Button, Row, Col, Container, Image, Card } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import {
+  Form,
+  Button,
+  Row,
+  Col,
+  Image,
+  Card,
+} from "react-bootstrap";
+import AvatarMale from "./images/avatar-male.jpg";
+import AvatarFemale from "./images/avatarfm.webp";
 
 function EditProfile() {
   const [formData, setFormData] = useState({
-    name: '',
-    gender: '',
-    dateOfBirth: '',
-    mobile: '',
-    email: '',
-    bloodGroup: '',
-    height: '',
-    bodyWeight: ''
+    name: "",
+    gender: "",
+    dateOfBirth: "",
+    mobile: "",
+    email: "",
+    bloodGroup: "",
+    height: "",
+    bodyWeight: "",
   });
-  
+
   const [profileImage, setProfileImage] = useState(null);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const data = window.sessionStorage.getItem("UserInfo");
+    if (data) {
+      const res = JSON.parse(data);
+      setUser(res);
+
+      setFormData({
+        name: res.userName || "",
+        gender: res.gender || "",
+        dateOfBirth: res.dateOfBirth || "",
+        mobile: res.mobile || "",
+        email: res.email || "",
+        bloodGroup: res.bloodGroup || "",
+        height: res.height || "",
+        bodyWeight: res.bodyWeight || "",
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -34,19 +63,23 @@ function EditProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    // Handle form submission (e.g., API call to update profile)
+    // Add logic to handle form submission
   };
 
   return (
-    <Container className="mt-5">
-      <Card className="p-4 shadow-sm rounded-lg border-0" style={{ maxWidth: '900px', margin: '0 auto', background: '#f9f9f9' }}>
-        <h2 className="my-4 text-center text-primary">Update Profile</h2>
+    <div className="container-fluid mt-5" style={{ backgroundColor: "#EBF4F6" }}> {/* Changed container background */}
+      <Card
+        className="p-4 shadow-sm rounded-lg border-0"
+        style={{ maxWidth: "900px", margin: "0 auto", background: "#FFFFFF" }}
+      >
+        <h2 className="my-4 text-center" style={{ color: "#071952" }}>Update Profile</h2> {/* Changed heading color */}
         <Form onSubmit={handleSubmit}>
           <Row>
             <Col md={8}>
-              {/* Profile Form */}
               <Form.Group as={Row} controlId="formName" className="mb-3">
-                <Form.Label column sm={3}>Name <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Name <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     type="text"
@@ -56,36 +89,43 @@ function EditProfile() {
                     placeholder="Enter your name"
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }} // Border color for inputs
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formGender" className="mb-3">
-                <Form.Label column sm={3}>Gender <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Gender <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Check
                     type="radio"
                     label="Male"
                     name="gender"
                     value="Male"
-                    checked={formData.gender === 'Male'}
+                    checked={formData.gender === "Male"}
                     onChange={handleChange}
                     inline
+                    style={{ color: "#071952" }}
                   />
                   <Form.Check
                     type="radio"
                     label="Female"
                     name="gender"
                     value="Female"
-                    checked={formData.gender === 'Female'}
+                    checked={formData.gender === "Female"}
                     onChange={handleChange}
                     inline
+                    style={{ color: "#071952" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formDOB" className="mb-3">
-                <Form.Label column sm={3}>Date of Birth <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Date of Birth <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     type="date"
@@ -94,32 +134,43 @@ function EditProfile() {
                     onChange={handleChange}
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formMobile" className="mb-3">
-                <Form.Label column sm={3}>Mobile <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Mobile <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={3}>
-                  <Form.Control as="select" defaultValue="Egypt (+20)" className="rounded-pill shadow-sm">
+                  <Form.Control
+                    as="select"
+                    defaultValue="Egypt (+20)"
+                    className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
+                  >
                     <option>Egypt (+20)</option>
-                    {/* Add more options as needed */}
+                    {/* Add more country code options as needed */}
                   </Form.Control>
                 </Col>
                 <Col sm={6}>
                   <Form.Control
                     type="tel"
                     name="mobile"
-                    value={formData.mobile}
+                    value={formData.mobile || user?.phoneNumber || ""}
                     onChange={handleChange}
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formEmail" className="mb-3">
-                <Form.Label column sm={3}>Email <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Email <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     type="email"
@@ -128,12 +179,15 @@ function EditProfile() {
                     onChange={handleChange}
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formBloodGroup" className="mb-3">
-                <Form.Label column sm={3}>Blood Group</Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Blood Group
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     as="select"
@@ -141,6 +195,7 @@ function EditProfile() {
                     value={formData.bloodGroup}
                     onChange={handleChange}
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   >
                     <option>Choose your blood group</option>
                     <option value="A+">A+</option>
@@ -156,7 +211,9 @@ function EditProfile() {
               </Form.Group>
 
               <Form.Group as={Row} controlId="formHeight" className="mb-3">
-                <Form.Label column sm={3}>Height <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Height <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     type="number"
@@ -166,12 +223,15 @@ function EditProfile() {
                     placeholder="Enter height in cm"
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} controlId="formBodyWeight" className="mb-3">
-                <Form.Label column sm={3}>Body Weight <span style={{ color: 'red' }}>*</span></Form.Label>
+                <Form.Label column sm={3} style={{ color: "#071952" }}>
+                  Body Weight <span style={{ color: "red" }}>*</span>
+                </Form.Label>
                 <Col sm={9}>
                   <Form.Control
                     type="number"
@@ -181,44 +241,68 @@ function EditProfile() {
                     placeholder="Enter weight in kg"
                     required
                     className="rounded-pill shadow-sm"
+                    style={{ borderColor: "#37B7C3" }}
                   />
                 </Col>
               </Form.Group>
 
               <Form.Group as={Row} className="mb-3">
                 <Col sm={{ span: 6, offset: 3 }} className="text-center">
-                  <Button variant="success" size="sm" type="submit" className="rounded-pill px-4">
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    type="submit"
+                    className="rounded-pill px-4"
+                    style={{ backgroundColor: "#088395", borderColor: "#088395" }} // Button color
+                  >
                     Submit
                   </Button>
                 </Col>
               </Form.Group>
 
-              {/* Links below the button */}
               <Row className="text-center mt-2">
                 <Col>
-                  <a href="#" className="text-muted">Download Data</a> | <a href="#" className="text-muted">Delete Account</a>
+                  <a href="#" className="text-muted">
+                    Download Data
+                  </a>{" "}
+                  |{" "}
+                  <a href="#" className="text-muted">
+                    Delete Account
+                  </a>
                 </Col>
               </Row>
             </Col>
 
-            {/* Image Upload Section */}
             <Col md={4} className="text-center">
               <Image
-                src={profileImage || "https://via.placeholder.com/150"}
+                src={
+                  profileImage ||
+                  (user && user.gender === "Female" ? AvatarFemale : AvatarMale)
+                }
                 roundedCircle
-                style={{ width: '150px', height: '150px', objectFit: 'cover', boxShadow: '0 4px 8px rgba(0,0,0,0.1)' }}
+                style={{
+                  width: "150px",
+                  height: "150px",
+                  objectFit: "cover",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                }}
                 alt="Profile"
                 className="mb-3"
               />
               <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Upload Profile Picture</Form.Label>
-                <Form.Control type="file" onChange={handleImageChange} className="rounded-pill shadow-sm" />
+                <Form.Label style={{ color: "#071952" }}>Upload Profile Picture</Form.Label>
+                <Form.Control
+                  type="file"
+                  onChange={handleImageChange}
+                  className="rounded-pill shadow-sm"
+                  style={{ borderColor: "#37B7C3" }}
+                />
               </Form.Group>
             </Col>
           </Row>
         </Form>
       </Card>
-    </Container>
+    </div>
   );
 }
 
