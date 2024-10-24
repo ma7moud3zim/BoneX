@@ -39,7 +39,7 @@ function NavigationBar() {
             height="50"
             width="50"
             className="rounded-circle"
-            style={{ objectFit: 'cover' }} // Custom styling for the logo
+            style={{ objectFit: 'fill' }} // Custom styling for the logo
           />
         </Link>
         <Link to="/consultion" className="nav-link text-light animate__shakeX animate__delay-5s" style={{ color: '#37B7C3' }}>
