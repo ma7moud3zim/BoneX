@@ -57,7 +57,3 @@ At **BoneX**, user experience is a top priority, featuring:
 ## Contribution
 
 We welcome contributions to make **BoneX** even better! Please refer to our contributing guidelines for details on how to get started.
-
-## License
-
-[MIT License](LICENSE)
