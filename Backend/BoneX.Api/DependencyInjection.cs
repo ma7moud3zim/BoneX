@@ -1,5 +1,7 @@
 ﻿using BoneX.Api.Authentication;
+using BoneX.Api.Errors;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -37,6 +39,9 @@ public static class DependencyInjection
         .AddAuthConfig(configuration);
 
         services.AddScoped<IAuthService, AuthService>();
+
+        services.AddExceptionHandler<GlobalExceptionHandler>();
+        services.AddProblemDetails();
 
         return services;
     }
