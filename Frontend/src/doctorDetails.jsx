@@ -52,6 +52,7 @@ const doctors = [
 function DoctorDetails() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
+  const [selectedType, setSelectedType] = useState("");
 
   const timeSlots = [
     { time: "09:00 AM", available: true },
@@ -172,23 +173,24 @@ function DoctorDetails() {
                 </div>
               </div>
               <br />
+
               <label>Appointment Type</label>
               <div className="appn-slot-container">
-                {AppointType.map((slot) => (
+                {AppointType.map((slot2) => (
                   <button
-                    key={slot.time}
+                    key={slot2.time}
                     type="button"
-                    disabled={!slot.available}
-                    onClick={() => setSelectedTime(slot.time)}
+                    disabled={!slot2.available}
+                    onClick={() => setSelectedType(slot2.time)}
                     className={`appn-slot-button ${
-                      selectedTime === slot.time
+                      selectedType === slot2.time
                         ? "selected"
-                        : slot.available
+                        : slot2.available
                         ? "available"
                         : "unavailable"
                     }`}
                   >
-                    {slot.time}
+                    {slot2.time}
                   </button>
                 ))}
               </div>
