@@ -154,3 +154,41 @@
    cursor: not-allowed;
    border-color: #E2E8F0; 
  }
+
+
+ .appn-slot-container {
+  display: flex; 
+  gap: 8px; 
+  overflow-x: auto; 
+  overflow-y: auto; 
+  padding: 8px 0; 
+}
+ .appn-slot-button {
+  width: 100px; 
+  height: 200px; 
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  border: 1px solid #CBD5E0; 
+}
+
+.appn-slot-button.selected {
+  background-color: #088395;
+  color: white;
+  border-color: #088395;
+}
+.appn-slot-button.available {
+  background-color: #F7FAFC;
+  color: #1A202C;
+  cursor: pointer; 
+}
+
+.appn-slot-button.unavailable {
+  background-color: #F7FAFC;
+  color: #A0AEC0;
+  cursor: not-allowed;
+  border-color: #E2E8F0; 
+}

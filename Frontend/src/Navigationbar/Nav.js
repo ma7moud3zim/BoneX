@@ -4,6 +4,9 @@ import avtmale from "../images/avatar-male.jpg";
 import avtfemale from "../images/avatarfm.webp";
 import notification from "../images/notification.png";
 import "./nav.css";
+import logo  from '../images/BoneX_Logo.png';
+import chat from '../images/chat.png';
+
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -22,8 +25,6 @@ const Nav = () => {
   }, []);
 
   const handleLogout = () => {
-    
-   
     // Remove using the same key as stored ("userInfo")
     sessionStorage.removeItem("userInfo");
     sessionStorage.removeItem("anuser");
@@ -33,19 +34,21 @@ const Nav = () => {
 
   return (
     <nav className="navbar">
+      <Link to="/"><img src={logo} alt="Bonex Logo" className="ign" /></Link>
       <Link to="/xray">X-ray Checker</Link>
-      <Link to="/chat">Chat messages</Link>
       <Link to="/doctors">Doctors</Link>
-      <Link to="/">Bonex</Link>
 
       {anUser ? (
         <div className="user-logged">
           <span className="user-name">{user.firstName}</span>
+          <Link to="/profile">
           <img
             src={user.gender === "1" ? avtmale : avtmale}
             alt="user-pic"
           />
-          <img src={notification} alt="Notification Icon" />
+          </Link>
+          <Link to="/chat"><img src={chat} alt="chat" className="ign" /></Link>
+          <Link to="/notfications"><img src={notification} alt="Nsotification Icon" /></Link>
           <Link onClick={handleLogout} style={{ marginLeft: "10px" }}>
             Logout
           </Link>

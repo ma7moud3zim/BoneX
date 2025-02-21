@@ -68,14 +68,6 @@
 
 .user-name {
   color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 20px;
   transition: 0.3s;
-}
-
-.user-name:hover {
-  background-color: #088395;
-  color: #fff;
-  border-radius: 5px;
-  padding: 5px 10px;
 }

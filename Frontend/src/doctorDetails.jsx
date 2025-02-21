@@ -65,6 +65,11 @@ function DoctorDetails() {
     { time: "05:00 PM", available: true },
   ];
 
+  const AppointType = [
+    { time: "Online", available: true },
+    { time: "Offline", available: true },
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ selectedDate, selectedTime });
@@ -165,6 +170,27 @@ function DoctorDetails() {
                     </button>
                   ))}
                 </div>
+              </div>
+              <br />
+              <label>Appointment Type</label>
+              <div className="appn-slot-container">
+                {AppointType.map((slot) => (
+                  <button
+                    key={slot.time}
+                    type="button"
+                    disabled={!slot.available}
+                    onClick={() => setSelectedTime(slot.time)}
+                    className={`appn-slot-button ${
+                      selectedTime === slot.time
+                        ? "selected"
+                        : slot.available
+                        ? "available"
+                        : "unavailable"
+                    }`}
+                  >
+                    {slot.time}
+                  </button>
+                ))}
               </div>
 
               <button type="submit" className="booking-form-button">
