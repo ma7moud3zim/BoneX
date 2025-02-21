@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Calendar, Award, Phone, Mail, MapPin } from "lucide-react";
 import "./doctorDetails.css";
 import { useParams } from "react-router-dom";
-import av from "./images/avatar-male.jpg";
+import MaleAvatar from "./images/avatar-male.jpg";
 
 const doctors = [
   {
@@ -24,7 +24,7 @@ const doctors = [
       "Cardiac Rehabilitation",
       "Echocardiography",
     ],
-    image: av,
+    image: MaleAvatar,
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const doctors = [
       "Epilepsy Treatment",
       "Neuroimaging",
     ],
-    image: { av },
+    image: MaleAvatar,
   },
 ];
 
@@ -138,7 +138,7 @@ function DoctorDetails() {
             <h3>Book an Appointment</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label>Select Date</label>
+                <label className="pdLabel">Select Date</label>
                 <div className="relative">
                   <Calendar />
                   <input
@@ -151,7 +151,7 @@ function DoctorDetails() {
               </div>
 
               <div>
-                <label>Available Times</label>
+                <label className="pdLabel">Available Times</label>
                 <div className="time-slot-container">
                   {timeSlots.map((slot) => (
                     <button
@@ -174,7 +174,7 @@ function DoctorDetails() {
               </div>
               <br />
 
-              <label>Appointment Type</label>
+              <label className="pdLabel">Appointment Type</label>
               <div className="appn-slot-container">
                 {AppointType.map((slot2) => (
                   <button
