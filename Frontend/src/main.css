@@ -1,0 +1,436 @@
+
+    /* 
+      COLOR PALETTE:
+      --bg-color: #EBF4F6   (light background)
+      --accent-color: #37B7C3
+      --secondary-accent: #088395
+      --dark-color: #071952
+    */
+body{
+
+background-color:#EBF4F6 !important;
+background-image: none !important;
+
+}
+    :root {
+      --bg-color: #EBF4F6 !important ;
+      --accent-color: #37B7C3 !important ;
+      --accent-color-light: #4ecad8 !important ; /* Lighter variant if needed */
+      --secondary-accent: #088395 !important ;
+      --dark-color: #071952 !important ;
+      --text-color: #333 !important ;
+    }
+
+
+
+    /* MAIN WRAPPER */
+    .homebody {
+        width: 90% !important ;
+        margin: auto;
+        background-color: #fff !important ;
+        border-radius: 20px !important ;
+        padding: 20px !important ;
+       
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1) !important ;
+        margin-top: 4vh !important ;
+    }
+
+    /* DOCTOR CARD */
+    .doctor-card {
+      
+      width: 95% !important ;
+      height: 350px !important ;
+      margin: auto;
+      position: relative !important ;
+      border-radius: 15px !important ;
+      padding: 20px 30px !important ;
+      display: flex !important ;
+      align-items: center !important ;
+      overflow: hidden !important ;
+      transition: transform 0.5s ease, box-shadow 0.5s ease !important ;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important ;
+      margin-bottom: 2rem !important ;
+    }
+    .doctor-card:hover {
+      transform: translateY(-8px) scale(1.03) !important ;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2) !important ;
+    }
+    /* Decorative circles using pseudo-elements */
+    .doctor-card::before,
+    .doctor-card::after {
+      content: "" !important ;
+      position: absolute !important ;
+      border-radius: 50% !important ;
+      background: rgba(255, 255, 255, 0.15) !important ;
+      z-index: 1 !important ;
+      transition: transform 0.5s ease !important ;
+    }
+    .doctor-card::before {
+      width: 200px !important ;
+      height: 200px !important ;
+      top: -50px !important ;
+      right: -50px !important ;
+    }
+    .doctor-card::after {
+      width: 150px !important ;
+      height: 150px !important ;
+      bottom: -30px !important ;
+      left: 20% !important ;
+    }
+    .doctor-card:hover::before {
+      transform: scale(1.1) translate(-10px, 10px) !important ;
+    }
+    .doctor-card:hover::after {
+      transform: scale(1.1) translate(10px, -10px) !important ;
+    }
+    /* Male Card: Use secondary accent -> accent gradient */
+    .doctor-card.male {
+      background: linear-gradient(135deg, #088395, #37B7C3) !important ;
+    }
+    /* Female Card: example if needed !important ; not used in this snippet */
+    .doctor-card.female {
+      background: linear-gradient(135deg, #8a4db9, #5e3ea5) !important ;
+    }
+    /* Info/Text Section */
+    .docinfo {
+      position: relative !important ;
+      z-index: 2 !important ;
+      width: 50% !important ;
+      color: #fff !important ;
+      padding-right: 10px !important ;
+    }
+    .docinfo .greeting {
+      font-size: 16px !important ;
+      color: #ddd !important ;
+      margin-bottom: 10px !important ;
+    }
+    .docinfo .DoctorName {
+      font-size: 28px !important ;
+      font-weight: 700 !important ;
+      margin-bottom: 5px !important ;
+    }
+    .docinfo .specialities {
+      font-size: 16px !important ;
+      font-weight: 500 !important ;
+      margin-bottom: 20px !important ;
+      color: #f5f5f5 !important ;
+    }
+    .docinfo .todaysApp {
+      font-size: 18px !important ;
+      font-weight: 600 !important ;
+    }
+    .docinfo .todaysApp span {
+      color: #ffeb3b !important ;
+    }
+    /* Doctor Avatar/Image */
+    .doctor-card img {
+      position: relative !important ;
+      z-index: 2 !important ;
+      top: 35% !important ;
+      width: 350px !important ;
+      height: auto !important ;
+      object-fit: contain !important ;
+      transition: transform 0.5s ease !important ;
+    }
+    .doctor-card:hover img {
+      transform: rotate(3deg) scale(1.02) !important ;
+    }
+    /* Responsive: Stack vertically on smaller screens */
+    @media (max-width: 768px) {
+      .doctor-card {
+        flex-direction: column !important ;
+        width: 100% !important ;
+        height: auto !important ;
+      }
+      .info,
+      .doctor-card img {
+        width: 100% !important ;
+        text-align: center !important ;
+      }
+      .doctor-card img {
+        margin-top: 20px !important ;
+        top: 0 !important ;
+      }
+    }
+
+    /* STATISTICS CARDS */
+    .cards-container {
+      margin-left: 21vh !important ;
+        flex-direction: col !important;
+      display: flex !important ;
+      gap: 20px !important ;
+      width: 60% !important ;
+      flex-wrap: wrap !important ;
+      justify-content: center !important ;
+      margin-bottom: 2rem !important ;
+    }
+    .cards-container .r1,.cards-container .r2{
+        display: flex !important;
+        gap: 25px !important;
+        margin-left: 50px !important;
+    }
+    
+    .card {
+      width: 200px !important ;
+      padding: 20px !important ;
+      border-radius: 10px !important ;
+      color: #fff !important ;
+      text-align: center !important ;
+      display: flex !important ;
+      gap: 10px !important ;
+      transition: transform 0.3s ease, box-shadow 0.3s ease !important ;
+      align-items: center !important ;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important ;
+      margin-bottom: 1rem !important ;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02) !important ;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important ;
+    }
+    .icon-container {
+      width: 50px !important ;
+      height: 50px !important ;
+      display: flex !important ;
+      justify-content: center !important ;
+      align-items: center !important ;
+      border-radius: 50% !important ;
+      background: rgba(255, 255, 255, 0.2) !important ;
+      margin-bottom: 10px !important ;
+    }
+    .icon-container .material-icons {
+      font-size: 24px !important ;
+      color: white !important ;
+    }
+    /* Re-map your color-coded cards to your palette (optional) */
+    /* New Color-coded Styles */
+    .indigo {
+      background: #3f51b5 !important ;
+    }
+
+    .cyan {
+      background: #00bcd4 !important ;
+    }
+    .purple {
+      background: #088395 !important ;
+    }
+    .red {
+      background: #ff6b6b !important ;
+    }
+    .orange {
+      background: #ffa502 !important ;
+    }
+    .blue {
+      background: #37B7C3 !important ;
+    }
+    .green {
+      background: #2ecc71 !important ;
+    }
+    .teal {
+      background: #1abc9c !important ;
+    }
+
+    /* SCHEDULE SECTION */
+    .schedule-section {
+      margin-top: 25px !important ;
+      width: 100% !important ;
+      min-height: 200px !important ;
+      background-color: #fff !important ;
+      border-radius: 8px !important ;
+      padding: 1rem !important ;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important ;
+      overflow: hidden !important ;
+    }
+
+    /* SEARCH & FILTER WRAPPER */
+    .search-filter-wrapper {
+      display: flex !important ;
+      align-items: center !important ;
+      justify-content: end !important ;
+      gap: 1rem !important ;
+      padding: 1rem !important ;
+      max-width: 600px !important ;
+      margin-left: auto !important ;
+      margin-right: 2rem !important ; /* some right margin to keep it away from table */
+    }
+    /* Search Bar Container */
+    .search-bar {
+      position: relative !important ;
+      display: flex !important ;
+      align-items: center !important ;
+      flex: 1 !important ;
+    }
+    /* Icon inside the Search Bar */
+    .search-icon {
+      position: absolute !important ;
+      left: 10px !important ;
+      color: #999 !important ;
+      pointer-events: none !important ;
+      transition: color 0.3s ease !important ;
+    }
+    /* Search Input */
+    .search-bar input {
+      width: 100% !important ;
+      padding: 10px 10px 10px 36px !important ;
+      border: 1px solid #ccc !important ;
+      border-radius: 20px !important ;
+      outline: none !important ;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease !important ;
+    }
+    .search-bar input:focus {
+      border-color: #37B7C3 !important ;
+      box-shadow: 0 0 5px rgba(55, 183, 195, 0.3) !important ;
+    }
+    .search-bar:hover .search-icon {
+      color: #666 !important ;
+    }
+
+    /* Filter Dropdown */
+    .filter-dropdown {
+      display: inline-flex !important ;
+      align-items: center !important ;
+      gap: 8px !important ;
+    }
+    .filter-label {
+      font-weight: 500 !important ;
+      font-size: 1rem !important ;
+      color: #333 !important ;
+    }
+    .filter-dropdown select {
+      padding: 10px 15px !important ;
+      border: 1px solid #ccc !important ;
+      border-radius: 20px !important ;
+      background-color: #fff !important ;
+      outline: none !important ;
+      cursor: pointer !important ;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease !important ;
+    }
+    .filter-dropdown select:hover,
+    .filter-dropdown select:focus {
+      border-color: #37B7C3 !important ;
+      box-shadow: 0 0 5px rgba(55, 183, 195, 0.3) !important ;
+    }
+
+    /* APPOINTMENT TABLE */
+    .appointment-table {
+      width: 100% !important ;
+      border-collapse: collapse !important ;
+      background: #fff !important ;
+      border-radius: 8px !important ;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important ;
+      margin-top: 1rem !important ;
+      overflow: hidden !important;
+    }
+    .appointment-table thead {
+      background: #071952 !important ;
+      color: #fff !important ;
+    }
+    .appointment-table th,
+    .appointment-table td {
+      padding: 12px 15px !important ;
+      text-align: left !important ;
+      border-bottom: 1px solid #ddd !important ;
+      position: relative !important ;
+    }
+    .appointment-table tbody tr:hover {
+      background: #f9f9f9 !important ;
+    }
+
+    /* Patient Info */
+    .patient-info {
+      display: flex !important ;
+      align-items: center !important ;
+    }
+    .patient-info img {
+      width: 40px !important ;
+      height: 40px !important ;
+      border-radius: 50% !important ;
+      margin-right: 10px !important ;
+      object-fit: cover !important ;
+      border: 2px solid #37B7C3 !important ;
+    }
+
+    /* Status Badges */
+    .status {
+      padding: 4px 8px !important ;
+      border-radius: 4px !important ;
+      font-size: 0.9em !important ;
+      font-weight: bold !important ;
+      display: inline-block !important ;
+      color: #fff !important ;
+    }
+    .status-booked {
+      background: #28a745 !important ; /* Green */
+    }
+    .status-completed {
+      background: #0d6efd !important ; /* Blue */
+    }
+    .status-canceled {
+      background: #dc3545 !important ; /* Red */
+    }
+    .status-noshow {
+      background: #ffc107 !important ; /* Yellow */
+      color: #333 !important ;
+      font-weight: 600 !important ;
+    }
+
+    /* Dropdown for table actions */
+    .dropdown {
+      position: relative !important ;
+      display: inline-block !important ;
+    }
+    .dropdown-toggle {
+      cursor: pointer !important ;
+      font-size: 1.2em !important ;
+      color: #37b7c3 !important ;
+      transition: color 0.3s ease !important ;
+    }
+    .dropdown-toggle:hover {
+      color: #088395 !important ;
+    }
+    .dropdown-menu {
+      display: none !important ;
+      position: absolute !important ;
+      right: 0 !important ;
+      background: #fff !important ;
+      border: 1px solid #ddd !important ;
+      border-radius: 4px !important ;
+      min-width: 160px !important ;
+      z-index: 100 !important ;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important ;
+      padding: 5px 0 !important ;
+    }
+    .dropdown-menu.show {
+      display: block !important ;
+    }
+    .dropdown-item {
+      display: flex !important ;
+      align-items: center !important ;
+      padding: 8px 15px !important ;
+      font-size: 0.9em !important ;
+      color: #333 !important ;
+      text-decoration: none !important ;
+      transition: background 0.2s !important ;
+    }
+    .dropdown-item:hover {
+      background: #f1f1f1 !important ;
+    }
+    .dropdown-item i {
+      margin-right: 8px !important ;
+      font-size: 1em !important ;
+    }
+
+    /* Row Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0 !important ;
+        transform: translateY(20px) !important ;
+      }
+      to {
+        opacity: 1 !important ;
+        transform: translateY(0) !important ;
+      }
+    }
+    .appointment-table tbody tr {
+      animation: fadeInUp 0.5s ease-in !important ;
+    }
+  

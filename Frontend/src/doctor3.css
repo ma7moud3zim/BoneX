@@ -1,0 +1,217 @@
+
+  
+ .main-container3 {
+  
+    margin: 50px auto;
+    width: 80%;
+    height: auto;
+  }
+  .head {
+    font-size: 32;
+    font-weight: bold;
+    color: #071952;
+  }
+  
+  .div-line {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    outline: none;
+  }
+  /*progress bar*/
+  
+  .progress-bar3 {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid #d9d9d9;
+  }
+  .circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    position: relative;
+  }
+  .circle img {
+    width: 80px;
+    height: 80px;
+  }
+  .line {
+    width: 300px;
+    height: 2px;
+    background-color: black;
+  }
+  .inactive {
+    opacity: 0.3;
+  }
+  .done {
+    border: 2px solid green;
+  }
+  /*progress bar*/
+  
+  
+  
+  
+  /* Info Box */
+  .info-box3 {
+      position: absolute;
+      top: 225px;
+      left: 1374px;
+      background-color: #33b6c4;
+      color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Title */
+  .info-box h2 {
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      color: #ebf4f6;
+  }
+  
+  /* Horizontal Line */
+  .info-box hr {
+      border: 1px solid white;
+      margin-bottom: 15px;
+  }
+  
+  /* Info List */
+  .info-box ul {
+      list-style: none;
+      font-size: 18px;
+      line-height: 1.6;
+  }
+  
+  /* Bold Text */
+  .info-box span {
+      font-weight: bolder;
+      color: #071952;
+  }
+  
+  /* Info Box */
+
+  
+  /*Award*/
+  .award{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+   
+    gap: 5px;
+  }
+  .award h2{
+    color: #071952;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .award button{
+width: 180px;
+height: 60px;
+background-color: #37b7c3;
+color: #071952;
+padding: 10px;
+border: none;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer; 
+transition: background-color 0.3s;
+
+border-radius: 20px;
+}
+  .award button:hover{
+background-color: #5BA3C6;
+transform: scale(1.2);
+  }
+
+.award span{
+font-size: 16px;
+color: #5E6366; 
+
+}  
+  /*Award*/
+
+
+
+
+  /*Form*/
+  .container3 {
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    width: 50%;
+    height: auto;
+}
+
+
+
+button {
+    padding: 18px;
+    background-color: #33b6c4;          
+    color: #071952;
+    width: 80%;
+    border: none;
+    border-radius: 34px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 30px;
+    margin-left: 10%;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+button:hover {
+    background-color: #5BA3C6;
+    transform: translateY(-2px);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin-bottom: 20px; 
+    margin-top: 58px;
+}
+.form-row label{
+color: #071952;
+font-size: 20px;
+font-weight: 600;
+
+}
+input, select {
+   width:60%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f7f7f7;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+  /*Form*/
