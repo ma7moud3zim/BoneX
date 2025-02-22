@@ -76,7 +76,6 @@ const Register = () => {
                 "gender": 1,
                 "phoneNumber": '+201551704101'
               },
-              
             );
 
 

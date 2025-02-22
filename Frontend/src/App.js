@@ -20,6 +20,8 @@ import Home from './Home.js'
 import Doctors from './Doctors.js'
 import Chatpage from './Chatpage.js'
 import DoctorDetails from './doctorDetails.jsx'
+import PatientProfile from './PatientProfile.jsx';
+import Notifications from './notifications.jsx';
 
 function App() {
   return (
@@ -37,11 +39,12 @@ function App() {
         <Route path="/Doctor3" element={<Doctor3 />} />
         <Route path="/Doctor2" element={<AcademicDetails />} />
         <Route path="/xray" element={<UploadComponent />} />
+        <Route path="/profile" element={<PatientProfile />} />
         <Route path="/doctorDetails/:id" element={<DoctorDetails/>}/>
-
+        <Route path="/notifications" element={<Notifications/>}/>
+        
       
         <Route path="/login" element={<Login />} />
-        
         <Route path="/consultion" element={<Consultion />} />
         <Route path="/editprofile" element={<EditProfile />} />
         <Route path="/changepassword" element={<Changepassword />} />

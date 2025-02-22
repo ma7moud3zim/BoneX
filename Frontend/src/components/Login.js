@@ -38,9 +38,6 @@ function Login() {
             //withCredentials: true, // Ensures that cookies (AuthToken) are sent
           }
         );
-  //      console.log('entered');
-        
-//      console.log(response.data);
       
         window.sessionStorage.setItem("anuser", true);
          
@@ -48,16 +45,21 @@ function Login() {
 
         // Only navigate if the AuthToken is retrieved or exists
         
-        
-        
+      
         navigate("/");
         window.location.reload(true);
-      } catch (error) {
+      
+      
+      }catch (error) {
+      
         console.error("Login failed:", error);
         setErrorMessage("Username or Password is incorrect"); // Set error message
+      
       }
     } else {
+      
       setErrorMessage("Please fill in both fields"); // Handle case where fields are empty
+    
     }
   };
 

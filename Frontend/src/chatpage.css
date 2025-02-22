@@ -23,10 +23,12 @@
    MAIN WRAPPER
 --------------------------- */
 .main-wrapper {
+  margin: auto;
   display: flex;
-  width: 100%;
+  width: 75%;
   height: calc(100vh - 65px); /* Subtract navbar height */
   overflow: hidden;           /* Prevent page scroll, use internal scrolls */
+
 }
 
 /* ---------------------------

@@ -5,7 +5,9 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  
+  margin: auto;
+  width: 85%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -70,4 +72,99 @@
   color: white;
   font-size: 20px;
   transition: 0.3s;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.notification-dropdown ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.notification-dropdown li {
+  padding: 5px 10px;
+}
+
+.view-all {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.view-all:hover {
+  background-color: #0056b3;
+}
+
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 300px; /* Set a fixed width for the dropdown */
+}
+
+.notification-dropdown ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+.notification-item:hover {
+  background-color: #f9f9f9; /* Change background on hover */
+}
+
+.notification-icon {
+  margin-right: 10px;
+  font-size: 20px; /* Adjust icon size */
+}
+
+.notification-message {
+  flex: 1; /* Allow message to take available space */
+}
+
+.view-all {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.view-all:hover {
+  background-color: #0056b3;
 }
