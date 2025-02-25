@@ -1,10 +1,10 @@
 .doctor-card2 {
   display: flex;
   background-color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #0051ff;
   border-radius: 8px;
   overflow: hidden;
-  width: 100%;
+  width: 75%;
   margin: 20px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -37,6 +37,7 @@
 .book-now-button {
   margin-top: 10px;
   padding: 10px 20px;
+  width: 15%;
   background-color: #05280d;
   color: white;
   border: none;

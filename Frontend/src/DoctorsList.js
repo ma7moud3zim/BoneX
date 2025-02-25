@@ -8,8 +8,10 @@ function Doctors() {
   // we should here retrieve the data of doctors from the database and then show them organized
   // in every panal 
   // Every card should lead to another page that called doctor details page
-  const navigate = useNavigate();
 
+
+
+  const navigate = useNavigate();
   const ShowAllClick = () => {
     navigate('/doctors');
   };

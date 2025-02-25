@@ -55,6 +55,7 @@ const Nav = () => {
 }, [showNotifications])
 
   return (
+    
     <nav className="navbar">
       <Link to="/"><img src={logo} alt="Bonex Logo" className="ign" /></Link>
       <Link to="/xray">X-ray Checker</Link>

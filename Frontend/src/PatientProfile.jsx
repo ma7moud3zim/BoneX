@@ -1,11 +1,17 @@
 // src/PatientProfile.js
-import React, { useState } from "react";
-import "./PatientProfile.css"; // Import CSS for styling
+import React, { useEffect, useState } from "react";
+import "./PatientProfile.css";
 import Avatar from "./images/avatar-male.jpg";
 const PatientProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
+
+  const [user, setUser] = useState(null);
+  const [anUser, setAnUser] = useState(false);
+  const me = sessionStorage.getItem("userInfo");
+  const userData = JSON.parse(me);
+
   const [patient, setPatient] = useState({
-    name: "Jane Smith",
+    name: userData.firstName + " " + userData.lastName,
     age: 30,
     gender: "Female",
     medicalHistory: ["Asthma", "Allergy to penicillin", "High blood pressure"],
@@ -17,7 +23,7 @@ const PatientProfile = () => {
     ],
     contact: "+1-987-654-3210",
     email: "jane.smith@example.com",
-    profilePicture: Avatar, // Placeholder image
+    profilePicture: Avatar,
   });
 
   const [formData, setFormData] = useState({ ...patient });
