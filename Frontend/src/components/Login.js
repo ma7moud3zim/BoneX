@@ -104,7 +104,7 @@ function Login() {
             <label htmlFor="formPassword" className="form-label">Password</label>
             <div className="input-group">
               <span className="input-group-text" style={{backgroundColor:'transparent'}}>
-                <FontAwesomeIcon icon={faLock}  />
+                <FontAwesomeIcon icon={faLock}/>
               </span>
               <input
                 type="password"
