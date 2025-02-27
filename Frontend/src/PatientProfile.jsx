@@ -12,7 +12,7 @@ const PatientProfile = () => {
 
   const [patient, setPatient] = useState({
     name: userData.firstName + " " + userData.lastName,
-    age: 30,
+    age: userData.age,
     gender: "Female",
     medicalHistory: ["Asthma", "Allergy to penicillin", "High blood pressure"],
     medications: ["Albuterol Inhaler", "Lisinopril"],
@@ -68,6 +68,7 @@ const PatientProfile = () => {
           alt={patient.name}
           className="profile-pic"
         />
+
         <div className="profile-info">
           <h2 className="patient-name">{patient.name}</h2>
           <p>
@@ -85,18 +86,22 @@ const PatientProfile = () => {
             <li key={index}>{condition}</li>
           ))}
         </ul>
+
         <h4>Medications</h4>
         <ul className="details-list">
           {patient.medications.map((medication, index) => (
             <li key={index}>{medication}</li>
           ))}
         </ul>
+
         <h4>Allergies</h4>
+
         <ul className="details-list">
           {patient.allergies.map((allergy, index) => (
             <li key={index}>{allergy}</li>
           ))}
         </ul>
+
         <h4>Old X-Ray Checks</h4>
         <ul className="details-list">
           {patient.oldXRayChecks.map((xray, index) => (
@@ -105,6 +110,7 @@ const PatientProfile = () => {
             </li>
           ))}
         </ul>
+
         <div className="contact-info">
           <p>
             <strong>Contact:</strong> {patient.contact}
@@ -113,6 +119,7 @@ const PatientProfile = () => {
             <strong>Email:</strong> {patient.email}
           </p>
         </div>
+
         <button className="edit-button" onClick={handleEditClick}>
           Edit
         </button>
@@ -120,52 +127,7 @@ const PatientProfile = () => {
 
       {isEditing && (
         <form className="edit-form" onSubmit={handleSave}>
-          <h4>Edit Patient Information</h4>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Age:
-            <input
-              type="number"
-              name="age"
-              value={formData.age}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Gender:
-            <input
-              type="text"
-              name="gender"
-              value={formData.gender}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Contact:
-            <input
-              type="text"
-              name="contact"
-              value={formData.contact}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </label>
+          <h3 className="h3label">Edit Patient Information</h3>
 
           <h4>Medical History</h4>
           {formData.medicalHistory.map((condition, index) => (
@@ -184,15 +146,16 @@ const PatientProfile = () => {
                 type="button"
                 onClick={() => handleRemoveFromArray(index, "medicalHistory")}
               >
-                Remove
+                X
               </button>
             </div>
           ))}
           <button
             type="button"
+            className="PButton"
             onClick={() => handleAddToArray("medicalHistory")}
           >
-            Add Condition
+            +
           </button>
 
           <h4>Medications</h4>
@@ -210,12 +173,16 @@ const PatientProfile = () => {
                 type="button"
                 onClick={() => handleRemoveFromArray(index, "medications")}
               >
-                Remove
+                X
               </button>
             </div>
           ))}
-          <button type="button" onClick={() => handleAddToArray("medications")}>
-            Add Medication
+          <button
+            type="button"
+            className="PButton"
+            onClick={() => handleAddToArray("medications")}
+          >
+            +
           </button>
 
           <h4>Allergies</h4>
@@ -233,12 +200,16 @@ const PatientProfile = () => {
                 type="button"
                 onClick={() => handleRemoveFromArray(index, "allergies")}
               >
-                Remove
+                X
               </button>
             </div>
           ))}
-          <button type="button" onClick={() => handleAddToArray("allergies")}>
-            Add Allergy
+          <button
+            type="button"
+            className="PButton"
+            onClick={() => handleAddToArray("allergies")}
+          >
+            +
           </button>
 
           <button type="submit" className="save-button">

@@ -17,8 +17,8 @@
 
 .profile-pic {
    border-radius: 50%;
-   width: 120px;
-   height: 120px;
+   width: 200px;
+   height: 200px;
    object-fit: cover;
    margin-right: 20px;
    border: 2px solid #007bff;
@@ -29,8 +29,8 @@
 }
 
 .patient-name {
-   margin: 0;
-   font-size: 1.8em;
+   margin: 10px;
+   font-size: 50px;
    color: #333;
 }
 
@@ -62,7 +62,8 @@
 .edit-button {
    background-color: #007bff;
    color: white;
-   border: none;
+   font-weight: bold;
+   margin: auto;
    padding: 10px 15px;
    border-radius: 5px;
    cursor: pointer;
@@ -127,8 +128,10 @@
    }
 }
 .edit-form {
+   width: 90%;
+   margin: auto;
    margin-top: 20px;
-   background-color: #fff;
+   background-color: #e1cfcf9d;
    padding: 15px;
    border-radius: 8px;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -136,15 +139,31 @@
 
 .edit-form label {
    display: block;
-   margin: 10px 0 5px;
+   margin: 20px 0 5px;
+}
+
+.h3label{
+   margin: auto;
 }
 
 .edit-form input {
-   width: 100%;
+   width: 70%;
    padding: 8px;
    border: 1px solid #ccc;
    border-radius: 4px;
 }
+
+.edit-form h4 {
+   font-size: 1.5rem;
+   font-weight: bold;
+   background-color: #f9f9f9;
+   border-left: 4px solid #007BFF;
+   padding: 16px 20px;
+   margin-bottom: 20px;
+   border-radius: 4px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   color: #333;
+   }
 
 .save-button {
    background-color: #28a745;
@@ -154,6 +173,7 @@
    border-radius: 5px;
    cursor: pointer;
    margin-top: 10px;
+   margin: auto;
 }
 
 .save-button:hover {
@@ -171,14 +191,20 @@
 
 .editable-item button {
    margin-left: 10px;
-   background-color: #dc3545;
+   background-color: #ff0000;
+   max-width: 50px;
+   max-height: 50px;
    color: white;
    border: none;
-   padding: 5px 10px;
    border-radius: 5px;
    cursor: pointer;
+   margin: auto;
 }
 
 .editable-item button:hover {
    background-color: #c82333;
 }
+.PButton{
+   margin:auto;
+}
+

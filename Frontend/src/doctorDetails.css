@@ -4,7 +4,7 @@
  }
  
  .doctor-details-wrapper {
-   max-width: 1520px;
+   max-width: 80%;
    margin: 0 auto;
    padding: 48px 16px;
  }
@@ -39,10 +39,15 @@
  }
  
  .doctor-details h2 {
-   font-size: 24px;
-   font-weight: bold;
-   margin-bottom: 8px;
- }
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+  border-bottom: 2px solid #ddd;
+  display: inline-block;
+  padding-bottom: 4px;
+  }
  
  .doctor-details p {
    color: #37B7C3;
