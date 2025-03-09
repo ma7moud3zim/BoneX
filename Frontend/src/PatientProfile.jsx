@@ -9,11 +9,12 @@ const PatientProfile = () => {
   const [anUser, setAnUser] = useState(false);
   const me = sessionStorage.getItem("userInfo");
   const userData = JSON.parse(me);
+  console.log(userData);
 
   const [patient, setPatient] = useState({
     name: userData.firstName + " " + userData.lastName,
     age: userData.age,
-    gender: "Female",
+    gender: userData.gender === 1 ? "Male" : "Female",
     medicalHistory: ["Asthma", "Allergy to penicillin", "High blood pressure"],
     medications: ["Albuterol Inhaler", "Lisinopril"],
     allergies: ["Peanuts", "Shellfish"],

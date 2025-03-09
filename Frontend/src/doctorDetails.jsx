@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, Award, Phone, Mail, MapPin } from "lucide-react";
 import "./doctorDetails.css";
 import { useParams } from "react-router-dom";
@@ -73,15 +73,21 @@ function DoctorDetails() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ selectedDate, selectedTime });
+    const appointment = {
+      date: selectedDate,
+      time: selectedTime,
+      type: selectedType,
+    };
+    console.log(appointment);
     alert("Appointment request submitted successfully!");
   };
+
   const { id } = useParams();
 
   const doctor = doctors.find((doc) => doc.id === parseInt(id));
 
   if (!doctor) {
-    return <div> Doctor not found</div>;
+    return <div>Doctor not found</div>;
   }
 
   return (
@@ -175,6 +181,7 @@ function DoctorDetails() {
               <br />
 
               <label className="pdLabel">Appointment Type</label>
+
               <div className="appn-slot-container">
                 {AppointType.map((slot2) => (
                   <button

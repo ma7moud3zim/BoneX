@@ -22,6 +22,7 @@ import Chatpage from './Chatpage.js'
 import DoctorDetails from './doctorDetails.jsx'
 import PatientProfile from './PatientProfile.jsx';
 import Notifications from './notifications.jsx';
+import PatientFeedback from './PatientFeedback.jsx'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/profile" element={<PatientProfile />} />
         <Route path="/doctorDetails/:id" element={<DoctorDetails/>}/>
         <Route path="/notifications" element={<Notifications/>}/>
+        <Route path="/patientfeedback" element={<PatientFeedback/>}/>
         
       
         <Route path="/login" element={<Login />} />
