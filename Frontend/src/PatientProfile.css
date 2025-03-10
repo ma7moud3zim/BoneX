@@ -208,3 +208,25 @@
    margin:auto;
 }
 
+
+.checkbox-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+   gap: 10px;
+ }
+ .h6 {
+   font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
+   font-size: 1.5rem; /* Adjust the font size */
+   font-weight: 600; /* Make the text bold */
+   color: #333; /* Dark gray color for the text */
+   margin-bottom: 16px; /* Space below the title */
+   padding-bottom: 8px; /* Space below the text */
+   border-bottom: 2px solid #007bff; /* Blue underline */
+   letter-spacing: 0.5px; /* Slightly increase letter spacing */
+   text-transform: uppercase; /* Make the text uppercase */
+   display: inline-block; /* Allows for padding and border */
+   background: linear-gradient(to right, #f9f9f9, #e9ecef); /* Subtle gradient background */
+   border-radius: 4px; /* Rounded corners */
+   padding: 8px 12px; /* Padding around the text */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+ }

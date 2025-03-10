@@ -1,15 +1,23 @@
-// src/PatientProfile.js
-import React, { useEffect, useState } from "react";
-import "./PatientProfile.css";
+import React, { useState } from "react";
 import Avatar from "./images/avatar-male.jpg";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  Button,
+  Typography,
+  Box,
+  Paper,
+  Grid,
+} from "@mui/material";
+import "./PatientProfile.css";
+
 const PatientProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const [user, setUser] = useState(null);
-  const [anUser, setAnUser] = useState(false);
   const me = sessionStorage.getItem("userInfo");
   const userData = JSON.parse(me);
-  console.log(userData);
 
   const [patient, setPatient] = useState({
     name: userData.firstName + " " + userData.lastName,
@@ -29,29 +37,91 @@ const PatientProfile = () => {
 
   const [formData, setFormData] = useState({ ...patient });
 
+  // Expanded predefined choices
+  const medicalHistoryChoices = [
+    "Asthma",
+    "Diabetes",
+    "Hypertension",
+    "Heart Disease",
+    "Arthritis",
+    "Cancer",
+    "Chronic Pain",
+    "Epilepsy",
+    "Multiple Sclerosis",
+    "COPD (Chronic Obstructive Pulmonary Disease)",
+    "Stroke",
+    "Depression",
+    "Anxiety Disorders",
+    "Osteoporosis",
+    "Ulcerative Colitis",
+    "Crohn's Disease",
+    "Parkinson's Disease",
+    "AIDS/HIV",
+    "Obesity",
+    "Hyperthyroidism",
+    "Hypothyroidism",
+    "Chronic Kidney Disease",
+  ];
+
+  const medicationChoices = [
+    "Albuterol Inhaler",
+    "Lisinopril",
+    "Metformin",
+    "Aspirin",
+    "Ibuprofen",
+    "Paracetamol",
+    "Atorvastatin",
+    "Simvastatin",
+    "Omeprazole",
+    "Amoxicillin",
+    "Levothyroxine",
+    "Hydrochlorothiazide",
+    "Metoprolol",
+    "Losartan",
+    "Sertraline",
+    "Furosemide",
+    "Gabapentin",
+    "Prednisone",
+    "Tramadol",
+    "Warfarin",
+    "Clopidogrel",
+    "Ranitidine",
+    "Loratadine",
+  ];
+
+  const allergyChoices = [
+    "Peanuts",
+    "Shellfish",
+    "Pollen",
+    "Dust",
+    "Latex",
+    "Milk",
+    "Eggs",
+    "Wheat",
+    "Soy",
+    "Fish",
+    "Cat Dander",
+    "Dog Dander",
+    "Bee Stings",
+    "Insect Bites",
+    "Penicillin",
+    "Sulfa Drugs",
+    "Mold",
+    "Grass",
+    "Tree Nuts",
+    "Perfume",
+    "Nickel",
+  ];
+
   const handleEditClick = () => {
     setIsEditing(true);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleArrayChange = (e, index, type) => {
-    const { value } = e.target;
-    const updatedArray = [...formData[type]];
-    updatedArray[index] = value;
-    setFormData({ ...formData, [type]: updatedArray });
-  };
-
-  const handleAddToArray = (type) => {
-    const updatedArray = [...formData[type], ""];
-    setFormData({ ...formData, [type]: updatedArray });
-  };
-
-  const handleRemoveFromArray = (index, type) => {
-    const updatedArray = formData[type].filter((_, i) => i !== index);
+  const handleCheckboxChange = (e, type) => {
+    const { value, checked } = e.target;
+    const updatedArray = checked
+      ? [...formData[type], value]
+      : formData[type].filter((item) => item !== value);
     setFormData({ ...formData, [type]: updatedArray });
   };
 
@@ -62,163 +132,163 @@ const PatientProfile = () => {
   };
 
   return (
-    <div className="profile-container">
-      <div className="profile-header">
-        <img
-          src={patient.profilePicture}
-          alt={patient.name}
-          className="profile-pic"
-        />
+    <Box className="profile-container" sx={{ padding: 2 }}>
+      <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+        <Box
+          className="profile-header"
+          sx={{ display: "flex", alignItems: "center" }}
+        >
+          <img
+            src={patient.profilePicture}
+            alt={patient.name}
+            className="profile-pic"
+            style={{
+              borderRadius: "50%",
+              width: 100,
+              height: 100,
+              marginRight: 16,
+            }}
+          />
 
-        <div className="profile-info">
-          <h2 className="patient-name">{patient.name}</h2>
-          <p>
-            <strong>Age:</strong> {patient.age}
-          </p>
-          <p>
-            <strong>Gender:</strong> {patient.gender}
-          </p>
-        </div>
-      </div>
-      <div className="profile-details">
-        <h4>Medical History</h4>
-        <ul className="details-list">
-          {patient.medicalHistory.map((condition, index) => (
-            <li key={index}>{condition}</li>
-          ))}
-        </ul>
+          <Box className="profile-info">
+            <Typography variant="h4" className="patient-name">
+              {patient.name}
+            </Typography>
+            <Typography>
+              <strong>Age:</strong> {patient.age}
+            </Typography>
+            <Typography>
+              <strong>Gender:</strong> {patient.gender}
+            </Typography>
+          </Box>
+        </Box>
+      </Paper>
 
-        <h4>Medications</h4>
-        <ul className="details-list">
-          {patient.medications.map((medication, index) => (
-            <li key={index}>{medication}</li>
-          ))}
-        </ul>
+      <Paper elevation={3} sx={{ padding: 2 }}>
+        <Box className="profile-details">
+          <Typography variant="h6">Medical History</Typography>
+          <ul className="details-list">
+            {patient.medicalHistory.map((condition, index) => (
+              <li key={index}>{condition}</li>
+            ))}
+          </ul>
 
-        <h4>Allergies</h4>
+          <Typography variant="h6">Medications</Typography>
+          <ul className="details-list">
+            {patient.medications.map((medication, index) => (
+              <li key={index}>{medication}</li>
+            ))}
+          </ul>
 
-        <ul className="details-list">
-          {patient.allergies.map((allergy, index) => (
-            <li key={index}>{allergy}</li>
-          ))}
-        </ul>
+          <Typography variant="h6">Allergies</Typography>
+          <ul className="details-list">
+            {patient.allergies.map((allergy, index) => (
+              <li key={index}>{allergy}</li>
+            ))}
+          </ul>
 
-        <h4>Old X-Ray Checks</h4>
-        <ul className="details-list">
-          {patient.oldXRayChecks.map((xray, index) => (
-            <li key={index}>
-              {xray.date}: {xray.description}
-            </li>
-          ))}
-        </ul>
+          <Typography variant="h6">Old X-Ray Checks</Typography>
+          <ul className="details-list">
+            {patient.oldXRayChecks.map((xray, index) => (
+              <li key={index}>
+                {xray.date}: {xray.description}
+              </li>
+            ))}
+          </ul>
 
-        <div className="contact-info">
-          <p>
-            <strong>Contact:</strong> {patient.contact}
-          </p>
-          <p>
-            <strong>Email:</strong> {patient.email}
-          </p>
-        </div>
+          <Box className="contact-info">
+            <Typography>
+              <strong>Contact:</strong> {patient.contact}
+            </Typography>
+            <Typography>
+              <strong>Email:</strong> {patient.email}
+            </Typography>
+          </Box>
 
-        <button className="edit-button" onClick={handleEditClick}>
-          Edit
-        </button>
-      </div>
+          <Button variant="contained" color="primary" onClick={handleEditClick}>
+            Edit
+          </Button>
+        </Box>
+      </Paper>
 
       {isEditing && (
-        <form className="edit-form" onSubmit={handleSave}>
-          <h3 className="h3label">Edit Patient Information</h3>
+        <Paper elevation={3} sx={{ padding: 2, marginTop: 2 }}>
+          <form className="edit-form" onSubmit={handleSave}>
+            <Typography variant="h5" className="h3label">
+              Edit Patient Information
+            </Typography>
 
-          <h4>Medical History</h4>
-          {formData.medicalHistory.map((condition, index) => (
-            <div key={index} className="editable-item">
-              <label>
-                Condition {index + 1}:
-                <input
-                  type="text"
-                  value={condition}
-                  onChange={(e) =>
-                    handleArrayChange(e, index, "medicalHistory")
-                  }
-                />
-              </label>
-              <button
-                type="button"
-                onClick={() => handleRemoveFromArray(index, "medicalHistory")}
-              >
-                X
-              </button>
-            </div>
-          ))}
-          <button
-            type="button"
-            className="PButton"
-            onClick={() => handleAddToArray("medicalHistory")}
-          >
-            +
-          </button>
+            <FormControl component="fieldset" sx={{ marginBottom: 2 }}>
+              <Typography className="h6">Medical History</Typography>
+              <Grid container spacing={2}>
+                {medicalHistoryChoices.map((choice, i) => (
+                  <Grid item xs={12} sm={6} md={3} key={i}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={formData.medicalHistory.includes(choice)}
+                          onChange={(e) =>
+                            handleCheckboxChange(e, "medicalHistory")
+                          }
+                          value={choice}
+                        />
+                      }
+                      label={choice}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </FormControl>
 
-          <h4>Medications</h4>
-          {formData.medications.map((medication, index) => (
-            <div key={index} className="editable-item">
-              <label>
-                Medication {index + 1}:
-                <input
-                  type="text"
-                  value={medication}
-                  onChange={(e) => handleArrayChange(e, index, "medications")}
-                />
-              </label>
-              <button
-                type="button"
-                onClick={() => handleRemoveFromArray(index, "medications")}
-              >
-                X
-              </button>
-            </div>
-          ))}
-          <button
-            type="button"
-            className="PButton"
-            onClick={() => handleAddToArray("medications")}
-          >
-            +
-          </button>
+            <FormControl component="fieldset" sx={{ marginBottom: 2 }}>
+              <Typography className="h6">Medications</Typography>
+              <Grid container spacing={2}>
+                {medicationChoices.map((choice, i) => (
+                  <Grid item xs={12} sm={6} md={3} key={i}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={formData.medications.includes(choice)}
+                          onChange={(e) =>
+                            handleCheckboxChange(e, "medications")
+                          }
+                          value={choice}
+                        />
+                      }
+                      label={choice}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </FormControl>
 
-          <h4>Allergies</h4>
-          {formData.allergies.map((allergy, index) => (
-            <div key={index} className="editable-item">
-              <label>
-                Allergy {index + 1}:
-                <input
-                  type="text"
-                  value={allergy}
-                  onChange={(e) => handleArrayChange(e, index, "allergies")}
-                />
-              </label>
-              <button
-                type="button"
-                onClick={() => handleRemoveFromArray(index, "allergies")}
-              >
-                X
-              </button>
-            </div>
-          ))}
-          <button
-            type="button"
-            className="PButton"
-            onClick={() => handleAddToArray("allergies")}
-          >
-            +
-          </button>
+            <FormControl component="fieldset" sx={{ marginBottom: 2 }}>
+              <Typography className="h6">Allergies</Typography>
+              <Grid container spacing={2}>
+                {allergyChoices.map((choice, i) => (
+                  <Grid item xs={12} sm={6} md={3} key={i}>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={formData.allergies.includes(choice)}
+                          onChange={(e) => handleCheckboxChange(e, "allergies")}
+                          value={choice}
+                        />
+                      }
+                      label={choice}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </FormControl>
 
-          <button type="submit" className="save-button">
-            Save
-          </button>
-        </form>
+            <Button type="submit" variant="contained" color="primary">
+              Save
+            </Button>
+          </form>
+        </Paper>
       )}
-    </div>
+    </Box>
   );
 };
 
