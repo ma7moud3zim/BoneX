@@ -1,0 +1,168 @@
+
+  
+ .main-container3 {
+  
+    margin: 50px auto;
+    width: 80%;
+    height: auto;
+  }
+  .head {
+    font-size: 32;
+    font-weight: bold;
+    color: #071952;
+  }
+  
+  .div-line {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    outline: none;
+  }
+  
+  
+  
+  
+  
+  /*Award*/
+  .award{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+   
+    gap: 5px;
+  }
+  .award h2{
+    color: #071952;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  .award button{
+width: 180px;
+height: 60px;
+background-color: #37b7c3;
+color: #071952;
+padding: 10px;
+border: none;
+font-size: 20px;
+font-weight: bold;
+cursor: pointer; 
+transition: background-color 0.3s;
+
+border-radius: 20px;
+}
+  .award button:hover{
+background-color: #5BA3C6;
+transform: scale(1.2);
+  }
+
+.award span{
+font-size: 16px;
+color: #5E6366; 
+
+}  
+  /*Award*/
+
+
+
+
+  /*Form*/
+  .container3 {
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    width: 50%;
+    height: auto;
+}
+
+
+
+ 
+.container3 form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.form-row button:hover {
+    background-color: #5BA3C6;
+    transform: translateY(-2px);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin-bottom: 20px; 
+    margin-top: 58px;
+}
+.form-row label{
+color: #071952;
+font-size: 20px;
+font-weight: 600;
+
+}
+.form-row input,.form-row select {
+   width:60%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f7f7f7;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+.form-row input:focus, select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+  /*Form*/
+
+
+  /*location*/
+  
+  .locationdv{
+
+                
+               
+
+    display: flex  ;
+    justify-content: center;
+
+    width: 100%  ; 
+
+}
+.location-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-width: 150px;
+padding: 8px 12px;
+margin-top: 8px;
+border: 2px solid #37B7C3;
+border-radius: 4px;
+background-color: #EBF4F6;
+cursor: pointer;
+transition: background-color 0.3s ease, border-color 0.3s ease;
+font-size: 14px;
+color: #37B7C3;
+}
+
+.location-btn:hover {
+border-color: #088395;
+}
+
+.location-btn.checked {
+background-color: #088395;
+border-color: #088395;
+color: #EBF4F6;
+}
+
+.location-btn.checked:hover {
+background-color: #071952;
+border-color: #071952;
+}
+
+  /*location*/

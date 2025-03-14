@@ -1,0 +1,195 @@
+/* NAVBAR */
+.navbar {
+  background-color: #071952;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: #088395;
+  color: #fff;
+}
+
+/* NAVBAR RIGHT SIDE: USER LOGGED IN */
+.user-logged {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.user-logged button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Define .notification-btn base style if not already defined */
+.notification-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effects for notification button and user image */
+.notification-btn:hover,
+.user-logged img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.user-logged img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.user-name:hover {
+  background-color: #088395;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+
+
+
+/* Notification Button & Basic Image Styles */
+.notification-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notification-btn:hover,
+.user-logged img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.user-logged img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: white;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+/* Notification Dropdown Container */
+.notification-dropdown {
+  position: absolute;
+  top: 60px; /* Adjusted to clear the button */
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 300px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Show dropdown when active */
+.notification-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Notification List */
+.notification-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Notification Items */
+.notification-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* Notification Icon & Message */
+.notification-item .icon {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.notification-item .message {
+  flex: 1;
+}
+
+/* "View All" Link */
+.view-all {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0 0 5px 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-all:hover {
+  background-color: #0056b3;
+}
+
+
+
+

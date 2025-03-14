@@ -1,0 +1,195 @@
+/* Overall Container */
+.doctorProfilecontainer {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; /* Base font size */
+  }
+  
+  /* PROFILE CARD */
+  .profile-card {
+    background: #EBF4F6;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(7, 25, 82, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+  }
+  .profile-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .profile-header {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.5rem;
+  }
+  
+  .profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    border: 3px solid #37B7C3;
+  }
+  
+  .profile-header h2 {
+    font-size: 2rem;         /* Increased size */
+    margin-bottom: 0.5rem;
+    color: #071952;
+    font-weight: 700;        /* Bolder text */
+  }
+  
+  .profile-header p {
+    font-size: 1.2rem;       /* Slightly larger paragraphs */
+    margin-bottom: 0.5rem;
+    color: #666666;
+    font-weight: 500;
+  }
+  
+  .profile-header .years-exp {
+    font-weight: 500;
+    color: #444;
+  }
+  
+  /* Edit Profile Button */
+  .edit-profile-btn {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 1.5rem;
+    background-color: #37B7C3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 200px;
+    text-align: center;
+  }
+  .edit-profile-btn:hover {
+    background-color: #088395;
+  }
+  
+  /* SECTION STYLES */
+  section {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(55, 183, 195, 0.33);
+    background: #EBF4F6;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  section:first-of-type {
+    border-top: none;
+  }
+  
+  .section-title {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;       /* Larger section titles */
+    font-weight: 700;        /* Bolder titles */
+    color: #071952;
+    border-bottom: 2px solid #37B7C3;
+    padding-bottom: 0.5rem;
+  }
+  
+  .section-content {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  
+  /* Reviews Section */
+  .reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .review {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(7, 25, 82, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .review:hover {
+    transform: translateY(-2px);
+  }
+  
+  .review img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review .review-text {
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review .reviewer-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #071952;
+  }
+  
+  /* ACTION BUTTONS */
+  .actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .actions button {
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .actions .book-btn {
+    background-color: #37B7C3;
+    color: #fff;
+  }
+  .actions .book-btn:hover {
+    background-color: #088395;
+  }
+  
+  .actions .msg-btn {
+    background-color: #071952;
+    color: #fff;
+  }
+  .actions .msg-btn:hover {
+    background-color: #088395;
+  }
+  
+  /* Carousel Overrides */
+  .carousel-caption {
+    background: rgba(55, 183, 195, 0.6);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .profile-header img {
+      margin-bottom: 1rem;
+    }
+  }
+  

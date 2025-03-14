@@ -1,0 +1,171 @@
+.feedback-container {
+    max-width: 75%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+   .feedback-container  h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #718096;
+    font-size: 1.1rem;
+  }
+  
+  .questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .question-card {
+    background-color: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+  
+  .question-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .question-text {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .radio-group {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .radio-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .radio-container input {
+    display: none;
+  }
+  
+  .radio-custom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #cbd5e0;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    position: relative;
+    transition: all 0.2s;
+  }
+  
+  .radio-custom::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #4299e1;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s;
+  }
+  
+  .radio-container input:checked + .radio-custom {
+    border-color: #4299e1;
+  }
+  
+  .radio-container input:checked + .radio-custom::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .radio-label {
+    font-size: 1rem;
+    color: #4a5568;
+  }
+  
+  .rating-card {
+    background-color: #f7fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+  
+  .star-rating {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  
+  .star-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .star-container input {
+    display: none;
+  }
+  
+  .star {
+    font-size: 2rem;
+    transition: transform 0.2s;
+  }
+  
+  .star-container:hover .star {
+    transform: scale(1.2);
+  }
+  
+  .star-label {
+    margin-top: 0.25rem;
+    color: #4a5568;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submit-button:hover {
+    background-color: #3182ce;
+  }
+  
+  @media (max-width: 768px) {
+    .feedback-container {
+      margin: 1rem;
+      padding: 1rem;
+    }
+  
+    .radio-group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .star-rating {
+      gap: 1rem;
+    }
+  }

@@ -1,0 +1,437 @@
+
+    /* 
+      COLOR PALETTE:
+      --bg-color: #EBF4F6   (light background)
+      --accent-color: #37B7C3
+      --secondary-accent: #088395
+      --dark-color: #071952
+    */
+body{
+
+background-color:#EBF4F6 !important ;
+background-image: none  ;
+
+}
+    :root {
+      --bg-color: #EBF4F6   ;
+      --accent-color: #37B7C3   ;
+      --accent-color-light: #4ecad8   ; /* Lighter variant if needed */
+      --secondary-accent: #088395   ;
+      --dark-color: #071952   ;
+      --text-color: #333   ;
+    }
+
+
+
+    /* MAIN WRAPPER */
+    .homebody {
+        width: 90%   ;
+        margin: auto;
+        height: auto;
+        background-color: #fff   ;
+        border-radius: 20px   ;
+        padding: 20px   ;
+       
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1)   ;
+        margin-top: 4vh   ;
+    }
+
+    /* DOCTOR CARD */
+    .doctorh-card {
+      
+      width: 95%   ;
+      height: 350px    ;
+      margin: auto;
+      position: relative    ;
+      border-radius: 15px    ;
+      padding: 20px 30px    ;
+      display: flex    ;
+      align-items: center    ;
+      overflow: hidden    ;
+      transition: transform 0.5s ease, box-shadow 0.5s ease    ;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1)    ;
+      margin-bottom: 2rem    ;
+    }
+    .doctorh-card:hover {
+      transform: translateY(-8px) scale(1.03)    ;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2)    ;
+    }
+    /* Decorative circles using pseudo-elements */
+    .doctorh-card::before,
+    .doctorh-card::after {
+      content: ""    ;
+      position: absolute    ;
+      border-radius: 50%    ;
+      background: rgba(255, 255, 255, 0.15)    ;
+      z-index: 1   ;
+      transition: transform 0.5s ease    ;
+    }
+    .doctorh-card::before {
+      width: 200px    ;
+      height: 200px    ;
+      top: -50px    ;
+      right: -50px    ;
+    }
+    .doctorh-card::after {
+      width: 150px    ;
+      height: 150px    ;
+      bottom: -30px    ;
+      left: 20%    ;
+    }
+    .doctorh-card:hover::before {
+      transform: scale(1.1) translate(-10px, 10px)    ;
+    }
+    .doctorh-card:hover::after {
+      transform: scale(1.1) translate(10px, -10px)    ;
+    }
+    /* Male Card: Use secondary accent -> accent gradient */
+    .doctorh-card.male {
+      background: linear-gradient(135deg, #088395, #37B7C3)    ;
+    }
+    /* Female Card: example if needed   ; not used in this snippet */
+    .doctorh-card.female {
+      background: linear-gradient(135deg, #8a4db9, #5e3ea5)    ;
+    }
+    /* Info/Text Section */
+    .docinfo {
+      position: relative    ;
+      z-index: 2    ;
+      width: 50%    ;
+      color: #fff    ;
+      padding-right: 10px    ;
+    }
+    .docinfo .greeting {
+      font-size: 16px    ;
+      color: #ddd    ;
+      margin-bottom: 10px    ;
+    }
+    .docinfo .DoctorName {
+      font-size: 28px    ;
+      font-weight: 700    ;
+      margin-bottom: 5px    ;
+    }
+    .docinfo .specialities {
+      font-size: 16px    ;
+      font-weight: 500    ;
+      margin-bottom: 20px    ;
+      color: #f5f5f5    ;
+    }
+    .docinfo .todaysApp {
+      font-size: 18px    ;
+      font-weight: 600    ;
+    }
+    .docinfo .todaysApp span {
+      color: #ffeb3b    ;
+    }
+    /* Doctor Avatar/Image */
+    .doctorh-card img {
+      position: relative    ;
+      z-index: 2    ;
+      top: 35%    ;
+      width: 350px    ;
+      height: auto    ;
+      object-fit: contain    ;
+      transition: transform 0.5s ease    ;
+    }
+    .doctorh-card:hover img {
+      transform: rotate(3deg) scale(1.02)    ;
+    }
+    /* Responsive: Stack vertically on smaller screens */
+    @media (max-width: 768px) {
+      .doctorh-card {
+        flex-direction: column   ;
+        width: 100%   ;
+        height: auto   ;
+      }
+      .info,
+      .doctorh-card img {
+        width: 100%    ;
+        text-align: center    ;
+      }
+      .doctorh-card img {
+        margin-top: 20px    ;
+        top: 0    ;
+      }
+    }
+
+    /* STATISTICS CARDS */
+   .homebody .cards-container {
+      margin-left: -50px ;
+        flex-direction: row   ;
+      display: flex    ;
+     
+      width: 100%    ;
+      flex-wrap: wrap    ;
+      justify-content: space-between    ;
+      margin-bottom: 2rem    ;
+    }
+      .homebody .cards-container .r1, .homebody  .cards-container .r2{
+        display: flex   ;
+        gap: 25px   ;
+        margin-left: 50px   ;
+    }
+    
+     .homebody  .cardh {
+      width: 200px    ;
+      padding: 20px    ;
+      border-radius: 10px    ;
+      color: #fff    ;
+      text-align: center    ;
+      display: flex   ;
+      gap: 10px   ;
+      transition: transform 0.3s ease, box-shadow 0.3s ease    ;
+      align-items: center    ;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)    ;
+      margin-bottom: 1rem    ;
+    }
+     .homebody .cardh:hover {
+      transform: translateY(-8px) scale(1.02)    ;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)    ;
+    }
+      .homebody .icon-container {
+      width: 50px    ;
+      height: 50px    ;
+      display: flex    ;
+      justify-content: center    ;
+      align-items: center    ;
+      border-radius: 50%    ;
+      background: rgba(255, 255, 255, 0.2)    ;
+      margin-bottom: 10px   ;
+    }
+    .homebody .icon-container .material-icons {
+      font-size: 24px    ;
+      color: white    ;
+    }
+    /* Re-map your color-coded cards to your palette (optional) */
+    /* New Color-coded Styles */
+    .homebody .indigo {
+      background: #3f51b5    ;
+    }
+
+    .homebody .cyan {
+      background: #00bcd4    ;
+    }
+     .homebody .purple {
+      background: #088395    ;
+    }
+     .homebody .red {
+      background: #ff6b6b    ;
+    }
+    .homebody .orange {
+      background: #ffa502    ;
+    }
+    .homebody .blue {
+      background: #37B7C3    ;
+    }
+    .homebody .green {
+      background: #2ecc71    ;
+    }
+    .homebody .teal {
+      background: #1abc9c    ;
+    }
+
+    /* SCHEDULE SECTION */
+    .schedule-section {
+      margin-top: 25px   ;
+      width: 100%   ;
+      height: auto;
+      background-color: #fff   ;
+      border-radius: 8px   ;
+      padding: 1rem   ;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)   ;
+    }
+
+    /* SEARCH & FILTER WRAPPER */
+    .search-filter-wrapper {
+      display: flex   ;
+      align-items: center   ;
+      justify-content: end   ;
+      gap: 1rem   ;
+      padding: 1rem   ;
+      max-width: 600px   ;
+      margin-left: auto   ;
+      margin-right: 2rem   ; /* some right margin to keep it away from table */
+    }
+    /* Search Bar Container */
+    .search-bar {
+      position: relative   ;
+      display: flex   ;
+      align-items: center   ;
+      flex: 1   ;
+    }
+    /* Icon inside the Search Bar */
+    .search-icon {
+      position: absolute   ;
+      left: 10px   ;
+      color: #999   ;
+      pointer-events: none   ;
+      transition: color 0.3s ease   ;
+    }
+    /* Search Input */
+    .search-bar input {
+      width: 100%   ;
+      padding: 10px 10px 10px 36px   ;
+      border: 1px solid #ccc   ;
+      border-radius: 20px   ;
+      outline: none   ;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease   ;
+    }
+    .search-bar input:focus {
+      border-color: #37B7C3   ;
+      box-shadow: 0 0 5px rgba(55, 183, 195, 0.3)   ;
+    }
+    .search-bar:hover .search-icon {
+      color: #666   ;
+    }
+
+    /* Filter Dropdown */
+    .filter-dropdown {
+      display: inline-flex   ;
+      align-items: center   ;
+      gap: 8px   ;
+    }
+    .filter-label {
+      font-weight: 500   ;
+      font-size: 1rem   ;
+      color: #333   ;
+    }
+    .filter-dropdown select {
+      padding: 10px 15px   ;
+      border: 1px solid #ccc   ;
+      border-radius: 20px   ;
+      background-color: #fff   ;
+      outline: none   ;
+      cursor: pointer   ;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease   ;
+    }
+    .filter-dropdown select:hover,
+    .filter-dropdown select:focus {
+      border-color: #37B7C3   ;
+      box-shadow: 0 0 5px rgba(55, 183, 195, 0.3)   ;
+    }
+
+    /* APPOINTMENT TABLE */
+    .appointment-table {
+      width: 100%   ;
+      border-collapse: collapse   ;
+      background: #fff   ;
+      border-radius: 8px   ;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)   ;
+      margin-top: 1rem   ;
+      
+    }
+    .appointment-table thead {
+      background: #071952   ;
+      color: #fff   ;
+    }
+    .appointment-table th,
+    .appointment-table td {
+      padding: 12px 15px   ;
+      text-align: left   ;
+      border-bottom: 1px solid #ddd   ;
+      position: relative   ;
+    }
+    .appointment-table tbody tr:hover {
+      background: #f9f9f9   ;
+    }
+
+    /* Patient Info */
+    .patient-info {
+      display: flex   ;
+      align-items: center   ;
+    }
+    .patient-info img {
+      width: 40px   ;
+      height: 40px   ;
+      border-radius: 50%   ;
+      margin-right: 10px   ;
+      object-fit: cover   ;
+      border: 2px solid #37B7C3   ;
+    }
+
+    /* Status Badges */
+    .status {
+      padding: 4px 8px   ;
+      border-radius: 4px   ;
+      font-size: 0.9em   ;
+      font-weight: bold   ;
+      display: inline-block   ;
+      color: #fff   ;
+    }
+    .status-booked {
+      background: #28a745   ; /* Green */
+    }
+    .status-completed {
+      background: #0d6efd   ; /* Blue */
+    }
+    .status-canceled {
+      background: #dc3545   ; /* Red */
+    }
+    .status-noshow {
+      background: #ffc107   ; /* Yellow */
+      color: #333   ;
+      font-weight: 600   ;
+    }
+
+    /* Dropdown for table actions */
+    .dropdown {
+      position: relative   ;
+      display: inline-block   ;
+    }
+    .dropdown-toggle {
+      cursor: pointer   ;
+      font-size: 1.2em   ;
+      color: #37b7c3   ;
+      transition: color 0.3s ease   ;
+    }
+    .dropdown-toggle:hover {
+      color: #088395   ;
+    }
+    .dropdown-menu {
+      display: none   ;
+      position: absolute   ;
+      right: 0   ;
+      background: #fff   ;
+      border: 1px solid #ddd   ;
+      border-radius: 4px   ;
+      min-width: 160px   ;
+      z-index: 100   ;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1)   ;
+      padding: 5px 0   ;
+    }
+    .dropdown-menu.show {
+      display: block   ;
+    }
+    .dropdown-item {
+      display: flex   ;
+      align-items: center   ;
+      justify-content: space-between;
+      padding: 8px 15px   ;
+      font-size: 0.9em   ;
+      color: #333   ;
+      text-decoration: none   ;
+      transition: background 0.2s   ;
+    }
+    .dropdown-item:hover {
+      background: #f1f1f1   ;
+    }
+    .dropdown-item i {
+      margin-right: 8px   ;
+      font-size: 1em   ;
+    }
+
+    /* Row Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0   ;
+        transform: translateY(20px)   ;
+      }
+      to {
+        opacity: 1   ;
+        transform: translateY(0)   ;
+      }
+    }
+    .appointment-table tbody tr {
+      animation: fadeInUp 0.5s ease-in   ;
+    }
+  

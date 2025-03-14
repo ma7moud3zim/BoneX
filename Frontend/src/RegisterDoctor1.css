@@ -1,0 +1,272 @@
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.main-container1 {
+  margin: 50px auto  ;
+  width: 80%  ;
+  height: auto  ;
+}
+.head {
+  font-size: 32px;
+  font-weight: bold;
+  color: #071952;
+}
+
+.div-line {
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  outline: none;
+}
+/*progress bar*/
+
+.progress-bar1 {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px 0;
+  border-bottom: 2px solid #d9d9d9;
+}
+.circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+.circle img {
+  width: 110px;
+  height: 110px;
+}
+.line {
+  width: 300px;
+  height: 2px;
+  background-color: black;
+}
+.inactive {
+  opacity: 0.3;
+}
+.done {
+  border: 2px solid green;
+}
+/*progress bar*/
+
+
+
+
+  /* Info Box */
+  .info-box1 {
+    position: absolute;
+    top: 225px;  
+    left: 1080px;
+    background-color: #33b6c4;
+    color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Title */
+.info-box h2 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #ebf4f6;
+}
+
+/* Horizontal Line */
+.info-box hr {
+    border: 1px solid white;
+    margin-bottom: 15px;
+}
+
+/* Info List */
+.info-box ul {
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Bold Text */
+.info-box span {
+    font-weight: bolder;
+    color: #071952;
+}
+
+/* Info Box */
+
+/* Form */
+
+.container1 {
+  padding: 30px   ;
+  height: 70%   ;
+  border-radius: 10px   ;
+  width: 50%   ;
+}
+
+.form-row {
+  display: flex   ;
+  align-items: center   ;
+  justify-content: space-between   ;
+  margin-bottom: 51px   ;
+}
+.form-row  label {
+  font-weight: bold   ;
+  width: 150px   ; /* توسيع عرض الـ Label */
+  text-align: right   ;
+  color: #071952   ;
+  font-size: 20px   ;
+}
+  .container1  .form-row input,
+    .container1      .form-row select {
+  box-sizing: border-box  ;
+  padding: 10px  ;
+  border: 1px solid #ccc  ;
+  border-radius: 5px  ;
+  background: #f7f7f7  ;
+  font-size: 16px  ;
+  width: 60%  ;
+}
+
+ .container1  .gender {
+  display: flex  ;
+  align-items: center  ;
+  gap: 15px  ;
+}
+
+ .container1 .mobile-input {
+  display: flex  ;
+  gap: 10px  ;
+}
+  .container1 .mobile-input input {
+  width: 100%  ;
+}
+ .container1  .input-with-icon {
+  width: 70%  ;
+  position: relative  ;
+}
+
+.container1 .input-with-icon input {
+  width: 100%  ;
+  padding-left: 40px  ;
+}
+
+ .container1 .input-with-icon .icon {
+  position: absolute  ;
+  left: 12px  ;
+  top: 50%  ;
+  transform: translateY(-50%)  ;
+  color: #666  ;
+  font-size: 16px  ;
+}
+
+.password-field {
+  margin-bottom: 15px ;
+}
+
+
+.submit-btn {
+  width: 100%   ;
+  padding: 12px   ;
+  background-color: #37b7c3   ;
+  color: #071952   ;
+  border: none   ;
+  border-radius: 5px   ;
+  font-size: 20px   ;
+  font-weight: bold   ;
+  cursor: pointer   ;
+  transition: background 0.3s   ;
+}
+
+.submit-btn:hover {
+  background-color: #088395   ;
+}
+
+/* Form */
+
+
+
+
+/* Base container for the calendar */
+.custom-datepicker {
+  background-color: #EBF4F6;
+  border: 1px solid #37B7C3;
+  border-radius: 4px;
+}
+
+/* Customize the header */
+.custom-datepicker .react-datepicker__header {
+  background-color: #37B7C3;
+  border-bottom: none;
+  color: #EBF4F6;
+}
+
+/* Style selected day */
+.custom-datepicker .react-datepicker__day--selected, 
+.custom-datepicker .react-datepicker__day--keyboard-selected {
+  background-color: #088395;
+  color: #EBF4F6;
+}
+
+/* Hover effect on days */
+.react-datepicker__day:hover {
+  background-color: #071952;
+  color: #EBF4F6;
+}
+
+/* Optional: further customize day cells */
+.custom-day {
+  /* For example, add custom padding or font-size if needed */
+  padding: 5px;
+}
+/* For both previous and next arrows */
+.react-datepicker__navigation {
+  background: none;       /* remove default background if needed */
+  border: none;           /* remove default border if needed */
+  outline: none;          /* remove focus outline if desired */
+  padding: 0.25rem;       /* control padding to reduce size */
+  margin: 0;              /* remove margins if not needed */
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Specifically for the previous arrow */
+.react-datepicker__navigation--previous {
+  top: 8px;               /* adjust position if needed */
+  left: 10px;
+  /* set width/height if you want to strictly control size */
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;     /* or 0 for no rounded corners */
+  background-color: #37B7C3; /* match your color palette */
+}
+
+/* Specifically for the next arrow */
+.react-datepicker__navigation--next {
+  top: 8px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #37B7C3;
+}
+
+/* The actual arrow shape is typically created with a pseudo-element */
+.react-datepicker__navigation--next::after,
+.react-datepicker__navigation--previous::after {
+  border-color: #fff;     /* arrow color */
+  /* You can also reduce arrow size by adjusting border-width */
+  border-width: 2px 2px 0 0;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+}

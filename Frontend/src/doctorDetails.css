@@ -1,0 +1,201 @@
+.doctor-details-container {
+    min-height: 100vh;
+    background-color: #EBF4F6;
+  }
+  
+  .doctor-details-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 48px 16px;
+  }
+  
+  .doctor-details-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+ .doctor-details-container .doctor-info {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    background-color: #071952;
+    padding: 32px;
+    color: white;
+  }
+  
+  .DoctorImage {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctor-details {
+    flex: 1; 
+  }
+  
+  .doctor-details h2 {
+   font-size: 1.75rem;
+   font-weight: 600;
+   color: #ffffff;
+   margin-bottom: 12px;
+   line-height: 1.3;
+   border-bottom: 2px solid #ddd;
+   display: inline-block;
+   padding-bottom: 4px;
+   }
+  
+  .doctor-details p {
+    color: #37B7C3;
+    margin-bottom: 16px;
+  }
+  
+  .doctor-info .specializations {
+    background-color: #088395;
+    padding: 24px;
+    border-radius: 8px;
+    margin-top: 32px;
+  }
+  
+  .doctor-info .specializations h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .doctor-info .specializations ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: white;
+  }
+  
+  .booking-form {
+    padding: 32px;
+  }
+  
+  .booking-form h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #071952;
+    margin-bottom: 24px;
+  }
+  
+  .pdLabel {
+    font-size: 24px !important;
+    font-weight: 500 !important; 
+    color: #000000 !important;
+    width: auto !important;
+    text-align: left !important;
+ 
+  }
+  
+  
+  .booking-form input,
+  .booking-form textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #CBD5E0;
+    padding: 12px;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .booking-form input:focus,
+  .booking-form textarea:focus {
+    border-color: #088395;
+    box-shadow: 0 0 0 2px rgba(8, 131, 149, 0.2);
+  }
+  
+  .booking-form button {
+    width: 100%;
+    background-color: #071952;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    cursor: pointer;
+  }
+  
+  .booking-form button:hover {
+    background-color: #37B7C3;
+  }
+  
+  .time-slot-container {
+    display: flex; 
+    gap: 8px; 
+    overflow-x: auto; 
+    padding: 8px 0; 
+  }
+  
+  .time-slot-button {
+    width: 50px; 
+    height: 50px; 
+    font-size: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    border: 1px solid #CBD5E0; 
+  }
+  
+  .time-slot-button.selected {
+    background-color: #088395;
+    color: white;
+    border-color: #088395;
+  }
+  .time-slot-button.available {
+    background-color: #F7FAFC;
+    color: #1A202C;
+    cursor: pointer; 
+  }
+  
+  .time-slot-button.unavailable {
+    background-color: #F7FAFC;
+    color: #A0AEC0;
+    cursor: not-allowed;
+    border-color: #E2E8F0; 
+  }
+ 
+ 
+  .appn-slot-container {
+   display: flex; 
+   gap: 8px; 
+   overflow-x: auto; 
+   overflow-y: auto; 
+   padding: 8px 0; 
+ }
+  .appn-slot-button {
+   width: 100px; 
+   height: 200px; 
+   font-size: 20px;
+   border-radius: 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background-color 0.2s;
+   border: 1px solid #CBD5E0; 
+ }
+ 
+ .appn-slot-button.selected {
+   background-color: #088395;
+   color: white;
+   border-color: #088395;
+ }
+ .appn-slot-button.available {
+   background-color: #F7FAFC;
+   color: #1A202C;
+   cursor: pointer; 
+ }
+ 
+ .appn-slot-button.unavailable {
+   background-color: #F7FAFC;
+   color: #A0AEC0;
+   cursor: not-allowed;
+   border-color: #E2E8F0; 
+ }

@@ -1,0 +1,180 @@
+/* Color Palette:
+   Primary:           #37B7C3
+   Background:        #EBF4F6
+   Secondary:         #088395
+   Dark Text:         #071952
+*/
+
+/* Full-page container */
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EBF4F6;
+  transition: background 0.3s ease;
+}
+
+/* Main container for image and form with enhanced shadow and larger size */
+.login-container {
+  background: #ffffff; /* Keeping white for clarity */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  overflow: hidden;
+  max-width: 1100px;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Left side image styling */
+.login-image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #37B7C3;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right side form styling */
+.login-form-container {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  color: #071952;
+}
+
+/* Toggle password icon styling */
+.toggle-password {
+  cursor: pointer;
+  color: #37B7C3;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+.toggle-password:hover {
+  color: #088395;
+}
+
+/* Input and button transitions */
+input.form-control {
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: #37B7C3 ;
+  box-shadow: 0 0 5px rgba(55, 183, 195, 0.5);
+}
+
+/* Remember me and forgot password container */
+.remember-forgot-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.remember-me {
+  margin-bottom: 15px;
+}
+
+.forgot-container {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.forgot-password {
+  font-size: 0.9rem;
+  color: #37B7C3;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #088395;
+}
+
+/* Submit button styling */
+.login-btn {
+  margin-top: 15px;
+  transition: background 0.3s ease;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+  background-color: #37B7C3;  /* Primary color */
+  color: #ffffff;             /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.login-btn:hover {
+  background-color: #088395;  /* Secondary color on hover */
+}
+.login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Social icons row */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.social-icons a {
+  font-size: 2rem; /* Enlarged base size for icons */
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+/* Hover scaling for social icons */
+.social-icons a:hover {
+  transform: scale(1.3);
+}
+
+/* Original brand colors for social icons */
+.social-icons a.google {
+  color: #db4437;
+}
+
+.social-icons a.facebook {
+  color: #4267B2;
+}
+
+.social-icons a.apple {
+  color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    max-width: 500px;
+  }
+  .login-image {
+    height: 200px;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

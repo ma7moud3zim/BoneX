@@ -1,0 +1,320 @@
+
+        
+      .main-container  .signup-btn {
+    display: inline-block  ; 
+    padding: 15px 30px  ; 
+    background-color: #088395  ; 
+    color: #071952  ;
+    text-decoration: none  ;
+    font-family: 'Times New Roman', Times, serif  ;
+    font-size: 1.2rem  ; 
+    font-weight: bold  ;
+    border-radius: 5px   ; 
+    width: 200px   ; 
+    text-align: center   ; 
+    border-radius: 27px   ;
+}
+.signup-btn:hover{
+    font-size: 1.5rem   ; 
+    background-color: #0F9DA9   ;
+    transition: .3s   ;
+
+}
+.signup-btn i {
+    font-size: 1.5rem   ; /* تكبير السهم */
+    vertical-align: middle   ; /* ضبط محاذاة السهم */
+}
+
+       
+        .main-container {
+            width: 1500px   ;
+            height: auto   ;
+            margin: 100px auto   ;
+            padding: 30px   ;
+            background-color: white   ;
+            border-radius: 10px   ;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)   ;
+            display: flex   ; 
+            justify-content: space-evenly   ; 
+            gap: 40px   ;
+            position: relative   ;
+        }
+        .logo{
+width: 150px   ;
+height: 150px   ;
+border-radius: 50%   ;
+position: absolute   ;
+top: -11%   ;
+left: 42%   ;
+z-index: 10000   ;
+        }
+        .form-container { 
+            flex: 2   ;
+            display: flex   ;
+            flex-direction: column   ;
+            align-items: self-start   ;
+            width: auto;
+           
+        }
+       
+        .info {
+            flex: 2   ; 
+            height: 400px   ;
+            display: flex   ;
+            flex-direction: column   ;
+            justify-content: center   ;
+            gap: 20px   ;
+            font-size: 24px   ;
+        }
+        .info .info-section {
+            background-color: #37B7C3   ;
+            color: white   ;
+            padding: 20px   ;
+            border-radius: 10px   ;
+            text-align: center   ;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)   ;
+        }
+     .main-container  .form-group {
+            margin-top: 50px   ;
+            margin-bottom: 15px   ;
+            
+            display: flex   ;
+            gap: 60px   ;
+            width: 100%   ; 
+        }
+        .main-container   .form-group input {
+            
+            padding: 15px  ;
+            border: 1px solid #ccc  ;
+            border-radius: 15px  !important;
+            font-size: 16px  ;
+            width: 100%  ;
+            
+        }
+   .main-container  .input-group{width: 100%  ;}
+
+       .main-container .input-group span{
+       
+    position: relative   ;
+    color: #5E6366   ;
+            font-size: 16px   ;
+        top: 50%   ;
+        left: 4%   ;
+        transition: .25s   ;
+    }
+
+   .main-container .input-group span{
+        position: relative   ;
+        color: #5E6366   ;
+        background-color: red   ;
+            font-size: 14px   ;
+        top: 0.5vh   ;
+        left: 2vh   ;
+    background-color: white   ; 
+    }
+
+
+        .captcha { 
+            margin-left: 239px   ;
+            width: 350px   ; 
+            height: 50px   ;
+            margin-top: 15px   ; 
+            padding-top: 13px   ; 
+            background-color: whitesmoke   ;
+        }
+       .main-container .signup {
+            margin-top: 20px  ;
+        }
+         .main-container  .signup button {
+            background-color: #002366  ;
+            color: white  ;
+            padding: 12px 108px  ;
+            border: none  ;
+            margin-left: 181px  ;
+            border-radius: 15px  ;
+            cursor: pointer  ;
+            font-size: 18px  ;
+            transition: 0.3s  ;
+        }
+          .main-container  .signup button:hover {
+            background-color: #0056b3  ;
+        }
+        .social-login {
+            text-align: center  ;
+            margin-top: 57px  ; 
+            margin-left: 268px  ;
+            display: flex   ;
+            justify-content: center   ;
+            gap: 30px   ;
+        }
+        .main-container .social-login p {
+            font-size: 20px  ;
+            margin-bottom: 10px  ;
+        }
+        
+         .main-container .social-login i:hover{
+transform: scale(1.5)  ;
+background-color: #EBF4F6  ;
+border-radius: 50%  ;
+        }
+      
+       .main-container .divider {
+            width: 180px  ;
+            height: 2px  ;
+            background-color: #ccc  ;
+            margin: 10px auto  ;
+        }
+       .main-container .line {
+            width: 100%  ;
+            border-top: 2px solid black  ;
+            position: relative  ; 
+            top: 30px  ;
+       
+        
+        
+        }
+        .or {
+            position: absolute  ;
+            top: -10px  ;
+            left: 50%  ;
+            transform: translateX(-50%)  ;
+            background: white  ;
+            padding: 0 10px  ;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .toggle-container {
+            /* Switch to flex and define a width */
+            display: flex;
+            width: 100%; /* or any width you prefer */
+            
+            /* Outer border to visually enclose both options */
+            border: 2px solid #37B7C3;
+            border-radius: 4px;
+            
+            /* Ensures corners are rounded for the entire toggle */
+            overflow: hidden;
+          }
+          
+          /* Hide the default radio buttons */
+          .toggle-container input[type="radio"] {
+            display: none;
+          }
+          
+          /* Toggle labels */
+          .toggle-btn {
+            /* Use flex:1 so each label expands equally */
+            flex: 1;
+            text-align: center;
+            
+            /* Spacing and appearance */
+            padding: 10px 0;
+            margin: 0;
+            cursor: pointer;
+            font-size: 16px;
+            
+            /* Default text color matches the border color */
+            color: #37B7C3;
+            background-color: #fff;
+            
+            /* Smooth transition on hover/check */
+            transition: background-color 0.3s, color 0.3s;
+          }
+          
+          /* Optional dividing line for the second label */
+          .toggle-btn:not(:first-of-type) {
+            border-left: 1px solid #37B7C3;
+          }
+          
+          /* When a radio button is checked, style its corresponding label */
+          .main-container #male:checked + label[for="male"],
+           .main-container #female:checked + label[for="female"] {
+            background-color: #37B7C3;
+            color: #fff;
+          }
+          
+          /* Optional hover effect on each label */
+          .toggle-btn:hover {
+            background-color: #088395;
+            color: #fff;
+          }
+          
+
+          .error {
+            color: red  ;
+          }
+          
+          .error:before {
+            content: "* ";
+          }
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            .locationdv{
+
+                
+               
+                
+                display: flex  ;
+                justify-content: center;
+           
+                width: 100%  ; 
+
+            }
+          .location-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            padding: 8px 12px;
+            margin-top: 8px;
+            border: 2px solid #37B7C3;
+            border-radius: 4px;
+            background-color: #EBF4F6;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            font-size: 14px;
+            color: #37B7C3;
+          }
+          
+          .location-btn:hover {
+            border-color: #088395;
+          }
+          
+          .location-btn.checked {
+            background-color: #088395;
+            border-color: #088395;
+            color: #EBF4F6;
+          }
+          
+          .location-btn.checked:hover {
+            background-color: #071952;
+            border-color: #071952;
+          }
+            
