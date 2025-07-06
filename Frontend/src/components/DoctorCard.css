@@ -1,35 +1,35 @@
-.doctor-card2 {
+.doctor-card {
   display: flex;
   background-color: #ffffff;
-  border: 1px solid #0051ff;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   overflow: hidden;
-  width: 75%;
+  width: 80%;
   margin: 20px 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.doctor-card2:hover {
+.doctor-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.doctor-image2 {
+.doctor-image {
   width: 200px;
   height: auto;
 }
 
-.doctor-info2 {
+.doctor-info {
   padding: 20px;
   flex: 1;
 }
 
-.doctor-info2 h2 {
+.doctor-info h2 {
   margin: 0 0 10px;
   font-size: 24px;
 }
 
-.doctor-info2 p {
+.doctor-info p {
   margin: 5px 0;
   color: #000000;
 }
@@ -37,7 +37,6 @@
 .book-now-button {
   margin-top: 10px;
   padding: 10px 20px;
-  width: 15%;
   background-color: #05280d;
   color: white;
   border: none;

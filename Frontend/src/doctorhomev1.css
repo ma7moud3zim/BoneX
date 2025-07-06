@@ -1,0 +1,10 @@
+/* Give every slide more side‑padding */
+.slick-slide {
+    padding: 0 20px;  /* adjust to taste */
+  }
+  
+  /* If you want the track itself to have no extra margin: */
+  .slick-track {
+    margin: 0 -20px;  /* negates the slide padding at the ends */
+  }
+  

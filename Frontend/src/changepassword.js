@@ -51,7 +51,7 @@ const Changepassword = () => {
   };
 
   return (
-    <div className="mt-5 container mx-auto px-4">
+    <div className="mt-5  mx-auto px-4">
       <div className="flex justify-center">
         <div className="w-full max-w-lg">
           <div

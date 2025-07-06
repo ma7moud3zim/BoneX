@@ -3,8 +3,7 @@ import personalImg from "./images/personal.webp";
 import { useNavigate } from "react-router-dom";
 import graduateImg from "./images/graduate.webp";
 import professionalImg from "./images/professional.png";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 
 import "./RegisterDoctor1.css";
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import '../src/App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import "@radix-ui/themes/styles.css";
 import Login from './components/Login';
 
 import Nav from './Navigationbar/Nav';
@@ -23,10 +23,17 @@ import DoctorProfile from './doctorProfile.js';
 import AwardModal from './AwardModal.js';
 import JitsiMeet from './JitsiMeet.js';
 import PatientProfile from './PatientProfile.jsx';
+//import PatientProfile from "./pages/PatientProfile.tsx";
+
 import PatientFeedback from './PatientFeedback.js';
 import DoctorDetails from './doctorDetails.jsx'
-
+import Doctorsv1 from './Doctorsv1.js';
 import Notifications from './Notifications.jsx';
+import Homev1 from './Homev1.js';
+import Tstahade from './components/tstahade.jsx';
+import IdentityVerification from './IdentityVerification.jsx';
+import '../src/App.css'
+
 function App() {
   return (
     
@@ -34,8 +41,15 @@ function App() {
     <Router>
     <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Homev1 />} />
+        
         <Route path="/doctors" element={<Doctors />} />
+
+         <Route path="/pro" element={<PatientProfile />} />
+         <Route path="/ts" element={<Tstahade />} />
+<Route path="/iv" element={<IdentityVerification />} />
+        <Route path="/doctorsv1" element={<Doctorsv1 />} />
+
         <Route path="/chat" element={<Chatpage />} />
         <Route path="/homed" element={<HomepageD />} />
         <Route path="/register" element={<Register />} />
@@ -43,7 +57,9 @@ function App() {
         <Route path="/Doctor3" element={<Doctor3 />} />
         <Route path="/Doctor2" element={<AcademicDetails />} />
         <Route path="/xray" element={<UploadComponent />} />
-        <Route path="/doctorprofile" element={<DoctorProfile />} />
+
+      <Route path="/doctorprofile/:id" element={<DoctorProfile />} />
+
         <Route path="/wrd" element={<AwardModal />} />
         <Route path="/meet" element={<JitsiMeet />} />
       

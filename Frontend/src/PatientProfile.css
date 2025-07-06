@@ -1,232 +1,25 @@
-/* src/PatientProfile.css */
-.profile-container {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    max-width:70%; 
-    margin: 20px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
- }
- 
- .profile-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
- }
- 
- .profile-pic {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin-right: 20px;
-    border: 2px solid #007bff;
- }
- 
- .profile-info {
-    text-align: left;
- }
- 
- .patient-name {
-    margin: 10px;
-    font-size: 50px;
-    color: #333;
- }
- 
- .profile-details {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- }
- 
- .details-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px 0;
- }
- 
- .details-list li {
-    background-color: #e9ecef;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
- }
- 
- .contact-info {
-    margin-top: 20px;
-    text-align: left;
- }
- 
- .edit-button {
-    background-color: #007bff;
-    color: white;
-    font-weight: bold;
-    margin: auto;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
- }
- 
- .edit-button:hover {
-    background-color: #0056b3;
- }
- 
- .edit-form {
-    margin-top: 20px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- }
- 
- .edit-form label {
-    display: block;
-    margin: 10px 0 5px;
- }
- 
- .edit-form input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
- }
- 
- .save-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
- }
- 
- .save-button:hover {
-    background-color: #218838;
- }
- 
- /* Responsive Styles */
- @media (max-width: 600px) {
-    .profile-container {
-        padding: 15px;
-    }
- 
-    .profile-header {
-        flex-direction: column;
-        align-items: center;
-    }
- 
-    .profile-pic {
-        margin-bottom: 10px;
-    }
- 
-    .patient-name {
-        font-size: 1.5em;
-    }
- }
- .edit-form {
-    width: 90%;
-    margin: auto;
-    margin-top: 20px;
-    background-color: #e1cfcf9d;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- }
- 
- .edit-form label {
-    display: block;
-    margin: 20px 0 5px;
- }
- 
- .h3label{
-    margin: auto;
- }
- 
- .edit-form input {
-    width: 70%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
- }
- 
- .edit-form h4 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    background-color: #f9f9f9;
-    border-left: 4px solid #007BFF;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    color: #333;
-    }
- 
- .save-button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin: auto;
- }
- 
- .save-button:hover {
-    background-color: #218838;
- }
- .editable-item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
- }
- 
- .editable-item label {
-    flex: 1;
- }
- 
- .editable-item button {
-    margin-left: 10px;
-    background-color: #ff0000;
-    max-width: 50px;
-    max-height: 50px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto;
- }
- 
- .editable-item button:hover {
-    background-color: #c82333;
- }
- .PButton{
-    margin:auto;
- }
- 
- 
- .checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-  }
-  .h6 {
-    font-family: 'Roboto', sans-serif; /* Use a modern sans-serif font */
-    font-size: 1.5rem; /* Adjust the font size */
-    font-weight: 600; /* Make the text bold */
-    color: #333; /* Dark gray color for the text */
-    margin-bottom: 16px; /* Space below the title */
-    padding-bottom: 8px; /* Space below the text */
-    border-bottom: 2px solid #007bff; /* Blue underline */
-    letter-spacing: 0.5px; /* Slightly increase letter spacing */
-    text-transform: uppercase; /* Make the text uppercase */
-    display: inline-block; /* Allows for padding and border */
-    background: linear-gradient(to right, #f9f9f9, #e9ecef); /* Subtle gradient background */
-    border-radius: 4px; /* Rounded corners */
-    padding: 8px 12px; /* Padding around the text */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
+/* pt.css */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #c5c5c5 #f0f0f0;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #c5c5c5;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a0a0;
+}

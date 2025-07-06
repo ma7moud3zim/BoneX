@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 import {
   faUser,
   faLock,
@@ -15,7 +17,7 @@ import doctorImg from "../images/doctorimg3.png"; // Ensure your image path is c
 
 function Login() {
   const navigate = useNavigate();
-
+ 
   // State to track form data
   const [formData, setFormData] = useState({
     username: "",
@@ -43,7 +45,7 @@ function Login() {
 async function assignChatUser( Id, UserName){
 
   try{
-const response=await axios.post("http://chatservice.runasp.net/api/ChatUsers", {
+const response=await axios.post("https://chatservice.runasp.net/api/ChatUsers", {
   Id: Id,
   UserName: UserName});
 console.log('from assign');
@@ -68,20 +70,24 @@ console.log('from assign');
     if (formData.username && formData.password) {
       setLoading(true);
       try {
-        const response = await axios.post("http://bonex.runasp.net/Auth", {
+        const response = await axios.post("https://bonex.runasp.net/Auth", {
           email: formData.username,
           password: formData.password,
         });
 
         window.sessionStorage.setItem("anuser", true);
         window.sessionStorage.setItem("userInfo", JSON.stringify(response.data));
- 
+  
+        // Update context with the user info
+          
+
        console.log('from login:',response.data.id);
        console.log('from login:',response.data.firstName);
        try{
-          const responsec=await axios.post("http://chatservice.runasp.net/api/ChatUsers", {
-            id: response.data.email,
-            userName: response.data.firstName,
+          const responsec=await axios.post("https://chatservice.runasp.net/api/ChatUsers", {
+            id: response.data.id,
+            userName: response.data.firstName ,
+            profilePictureUrl: `https://bonex.runasp.net${response.data.profilePicture}`
             
           });
           console.log('from assign');
@@ -101,7 +107,7 @@ console.log('from assign');
 
 
         if (response.data.role === "Doctor") {
-          navigate("/homed");
+          navigate("/iv");
         } else {
           navigate("/");
         }
@@ -221,19 +227,6 @@ console.log('from assign');
             </button>
           </form>
 
-          {/* Social Login */}
-          <p className="text-center mt-3">Or sign in with:</p>
-          <div className="social-icons">
-            <a href="#" className="google" title="Sign in with Google">
-              <FontAwesomeIcon icon={faGoogle} />
-            </a>
-            <a href="#" className="facebook" title="Sign in with Facebook">
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a href="#" className="apple" title="Sign in with Apple">
-              <FontAwesomeIcon icon={faApple} />
-            </a>
-          </div>
 
           {/* Sign up Prompt */}
           <p className="text-center mt-4">

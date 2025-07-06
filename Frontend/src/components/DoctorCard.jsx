@@ -1,22 +1,16 @@
-import React from "react";
-import "./DoctorCard.css";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import './DoctorCard.css';
 
 const DoctorCard = ({ doctor }) => {
-  const navigate = useNavigate();
-
-  const handleCardClick = () => {
-    // Navigate to the doctorDetails route with the doctor's ID
-    navigate(`/doctorDetails/${doctor.id}`);
-  };
+  
   const handleBookNow = () => {
-    navigate(`/doctorDetails/${doctor.id}`);
+    alert(`Booking appointment with ${doctor.name}`);
   };
 
   return (
-    <div className="doctor-card2" onClick={handleCardClick}>
-      <img src={doctor.image} alt={doctor.name} className="doctor-image2" />
-      <div className="doctor-info2">
+    <div className="doctor-card">
+      <img src={doctor.image} alt={doctor.name} className="doctor-image" />
+      <div className="doctor-info">
         <h2>{doctor.name}</h2>
         <p>{doctor.specialization}</p>
         <p>{doctor.description}</p>

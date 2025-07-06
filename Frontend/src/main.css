@@ -25,7 +25,7 @@ background-image: none  ;
 
     /* MAIN WRAPPER */
     .homebody {
-        width: 90%   ;
+        width: 95%   ;
         margin: auto;
         height: auto;
         background-color: #fff   ;
@@ -156,7 +156,7 @@ background-image: none  ;
 
     /* STATISTICS CARDS */
    .homebody .cards-container {
-      margin-left: -50px ;
+      margin-left: 250px ;
         flex-direction: row   ;
       display: flex    ;
      
@@ -167,8 +167,8 @@ background-image: none  ;
     }
       .homebody .cards-container .r1, .homebody  .cards-container .r2{
         display: flex   ;
-        gap: 25px   ;
-        margin-left: 50px   ;
+        gap: 30px   ;
+      
     }
     
      .homebody  .cardh {
@@ -371,6 +371,12 @@ background-image: none  ;
       background: #ffc107   ; /* Yellow */
       color: #333   ;
       font-weight: 600   ;
+    }
+    .status-followup{
+      background: #2661a8   ; 
+      color: white   ;
+      font-weight: 600   ;
+
     }
 
     /* Dropdown for table actions */

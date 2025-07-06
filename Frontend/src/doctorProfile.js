@@ -1,9 +1,42 @@
-import React, { useState } from 'react'
-import './doctorProfile.css'
+import React, { useEffect, useState } from 'react'
 import cer1 from './images/cer1.jpg'
+import { useNavigate } from 'react-router-dom'
 import MapComponent from './components/MapComponent '
+import { Link, useParams } from 'react-router-dom'
+import ModalComponent from './components/ModalComponent'
+import './doctorProfile.css'
 const DoctorProfile = () => {
   const [user,setuser]=useState(JSON.parse(sessionStorage.getItem('userInfo')))
+  const [doctor,setdoctor]=useState(null)
+ const[isopen,setisopen]=useState(false)
+const navigate=useNavigate();
+  const params=useParams();
+
+const degreeurl='https://bonex.runasp.net'+doctor?.degreeCertificate;
+const postgradurl='https://bonex.runasp.net'+doctor?.additionalCertification;
+const profilepic='https://bonex.runasp.net'+doctor?.profilePicture;
+const handlebook=()=>{setisopen(true)}
+const handleClose=()=>{setisopen(false)}
+
+useEffect(() => {
+    console.log(params.id);
+
+    fetch(`https://bonex.runasp.net/Doctor/profile/${params.id}`, {
+      headers: {
+        'authorization': `Bearer ${user.token}`
+      }
+    })
+      .then((res) => res.json())
+      .then((data) =>{ setdoctor(data);console.log(data); })
+      
+      .catch((error) => console.error('Error fetching doctor data:', error));
+  }, []); 
+  
+const handleMessageDoctor=()=>{
+sessionStorage.setItem('doctorId',doctor?.id);
+navigate('/chat');
+}
+
   return (
 
     <div class="doctorProfilecontainer">
@@ -11,36 +44,41 @@ const DoctorProfile = () => {
   <div class="profile-card">
     <div class="profile-header">
     
-      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="Doctor Profile Picture"/>
+      <img src={profilepic} alt="Doctor Profile Picture"/>
       <div>
-        <h2 id="docName">Dr. Ahmed</h2>
+        <h2 id="docName">Dr.{doctor?.firstName}</h2>
         <p class="specialty" id="docSpecialty">Orthopedic Surgeon</p>
-        <p class="years-exp" id="docExperience">10 Years of Experience</p>
+        <p class="years-exp" id="docExperience">{doctor?.yearsOfExperience} Years of Experience</p>
         <p class="registration" id="docReg">Reg. No: 1234567</p>
       </div>
     </div>
   </div>
+<>
 
- 
+
+</>
+{/* 
   <button class="edit-profile-btn" onclick="openModal()"  hidden={user.role === 'patient'}>Edit Profile</button>
-
+*/}
  
   <section id="overview">
     <h3 class="section-title">Brief About the Doctor</h3>
     <p id="docBio">
-      Dr. Ahmed is a board-certified Orthopedic Surgeon specializing in musculoskeletal injuries and conditions. With a passion for minimally invasive techniques, he focuses on helping patients recover quickly and with minimal discomfort. His patient-centered approach emphasizes clear communication and personalized care.
+    {doctor?.brief}
     </p>
+    {
     <div class="actions">
-      <button className="book-btn" hidden={user.role === 'Doctor'}>Book Appointment</button>
-      <button class="msg-btn"   hidden={user.role === 'Doctor'}>Message Doctor</button>
+      <button className="book-btn" hidden={user.role === 'Doctor'} onClick={handlebook}>Book Appointment</button>
+      <button class="msg-btn"   hidden={user.role === 'Doctor'} onClick={handleMessageDoctor}> Message Doctor </button>
     </div>
+    }
   </section>
-
+{isopen&&(<ModalComponent  isopen={isopen} handleClose={handleClose} doctorid={doctor?.id} />)}
 
   <section id="education">
     <h3 class="section-title">Education & Qualifications</h3>
     <p class="section-content" id="educationInfo">
-      Undergraduate: MBBS, Harvard Medical School (2010)
+      Undergraduate: {doctor?.universityName} ({doctor?.graduationYear})
       <br />
       Postgraduate: MD (Orthopedics); Fellowship in Sports Medicine
     </p>
@@ -52,23 +90,18 @@ const DoctorProfile = () => {
     <div id="carouselAchievements" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src={cer1} class="d-block w-100" alt="Certificate of Excellence"/>
+          <img src={degreeurl} class="d-block w-100" alt="Certificate of Excellence"/>
           <div class="carousel-caption d-none d-md-block">
-            <h5>Certificate of Excellence</h5>
+            <h5>graduation of Certificate</h5>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="" class="d-block w-100" alt="Medical Degree Certificate"/>
+          <img src={postgradurl} class="d-block w-100" alt="Medical Degree Certificate"/>
           <div class="carousel-caption d-none d-md-block">
-            <h5>Medical Degree Certificate</h5>
+            <h5>Postgraduate  Certificate</h5>
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="./images/cer1.jpg" class="d-block w-100" alt="Best Surgeon Award"/>
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Best Surgeon Award</h5>
-          </div>
-        </div>
+       
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselAchievements" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -85,17 +118,17 @@ const DoctorProfile = () => {
   <section id="professional">
   <h3 className="section-title">Professional Details</h3>
   <p className="section-content" id="professionalInfo">
-    Current Clinic: Sunshine Orthopedic Center
+    Current Clinic: {doctor?.workplaceName} Center
     <br />
     Address: 1234 Health Street, Cairo, Egypt
     <br />
-    Consultation Fee: $95
+    Consultation Fee: ${doctor?.consultationFees}
     <br />
-    Availability: Mon-Fri (9:00 AM - 4:00 PM)
+    Availability: Sun-Fri ({doctor?.consultationHours})
     <br />
     Consultation Methods: Video Call, In-Person, Phone
     <br />
-    Additional Qualification: Advanced Certification in Minimally Invasive Procedures
+    Additional Qualification: None 
   </p>
 </section>
 
@@ -140,7 +173,7 @@ const DoctorProfile = () => {
   <section id="additional-info">
     <h3 class="section-title">Additional Information</h3>
     <p class="section-content" id="additionalInfo">
-      Languages: English, Arabic, French
+      Languages: English, Arabic
       <br />
       Affiliations: Egyptian Medical Association, International Orthopedic Society
       <br />
@@ -148,16 +181,16 @@ const DoctorProfile = () => {
       <br />
       Awards: Best Surgeon Award 2019, Healthcare Excellence Award 2021
       <br />
-      Twitter: <a href="https://twitter.com/dr_ahmed" target="_blank">twitter.com/dr_ahmed</a>
+      FaceBook:none
       <br />
-      LinkedIn: <a href="https://linkedin.com/in/dr-ahmed" target="_blank">linkedin.com/in/dr-ahmed</a>
+      LinkedIn: none
       <br />
-      Publications: <a href="https://scholar.google.com/citations?user=example" target="_blank">Google Scholar Profile</a>
+      Publications:none 
     </p>
     <div class="sub-section">
       <h4>Clinic Location</h4>
       <div class="embed-container">
-     <MapComponent lat={30.044420} lng={31.235712}/>
+     <MapComponent lat={parseFloat(doctor?.latitude || 0, 10)} lng={parseFloat(doctor?.longitude || 0, 10)}/>
       </div>
     </div>
     

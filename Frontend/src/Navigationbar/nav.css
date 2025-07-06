@@ -3,12 +3,27 @@
   background-color: #071952;
   padding: 15px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Logo container */
+.navbar-left img {
+  height: 40px; /* Adjust as needed */
+}
+
+/* Center links container */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Navbar links */
 .navbar a {
   color: white;
   text-decoration: none;
@@ -21,10 +36,19 @@
 
 .navbar a:hover {
   background-color: #088395;
-  color: #fff;
 }
 
-/* NAVBAR RIGHT SIDE: USER LOGGED IN */
+/* Hamburger Menu Button */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* User Logged In & Notification styles remain unchanged */
 .user-logged {
   display: flex;
   align-items: center;
@@ -38,6 +62,36 @@
   cursor: pointer;
   border-radius: 50%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.user-dropdown{
+position: absolute;
+  top: 60px; /* Adjusted to clear the button */
+  right: 0;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 300px;
+  height: 100px;
+  
+  
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+
+}
+.user-dropdown a{
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 5px;
+  
 }
 
 /* Define .notification-btn base style if not already defined */
@@ -191,5 +245,14 @@
 }
 
 
+/* Notification icon styling */
+.notification-icon {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.notification-btn:hover .notification-icon {
+  color: #088395; /* Accent color on hover */
+}
 
 

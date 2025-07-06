@@ -77,3 +77,22 @@
   background-color: #0ec736; 
 }
 
+/*            new Styles                        */
+
+
+.sec1{
+width: 100%;
+height: 357px;
+background-color: #F7FAFC;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.iconsContainer{
+width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  
+}

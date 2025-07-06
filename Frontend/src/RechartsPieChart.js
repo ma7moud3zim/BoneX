@@ -2,10 +2,9 @@ import React from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 
 const data = [
-    { name: 'Stress Fractures ', value: 400 },
-    { name: 'others', value: 100 },
-    { name: 'PathologicFractures', value: 300 },
-  { name: 'Fragility Fractures', value: 200 }
+
+    { name: 'PathologicFractures', value: 0 },
+  { name: 'Fragility Fractures', value: 0 }
 ];
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -14,7 +13,7 @@ const RechartsPieChart = () => (
   <PieChart width={480} height={400} >
     <Pie
       data={data}
-      cx={230}
+      cx={250}
       cy={150}
       labelLine={true}
       label={({ name, percent }) =>

@@ -22,17 +22,20 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7000,
     arrows: true,
+    pauseOnHover: true,
   };
 
   return (
-    <div className="carousel-container">
+    <div className="carousel-container"  >
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="carousel-slide">
             <img src={image.src} alt={`Slide ${index}`} className="carousel-image" />
-            <div className="carousel-text">{image.text}</div>
+            <div className="carousel-text">
+  {image.text}
+</div>
           </div>
         ))}
       </Slider>
