@@ -1,0 +1,13 @@
+﻿global using BoneX.Api.Abstraction;
+global using BoneX.Api.Authentication;
+global using BoneX.Api.Entities;
+global using BoneX.Api.Persistence;
+global using BoneX.Api.Services;
+global using FluentValidation;
+global using FluentValidation.AspNetCore;
+global using Mapster;
+global using MapsterMapper;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.EntityFrameworkCore;
+global using System.Reflection;

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoneX Email Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+            .header h1 {
+                color: #007bff;
+            }
+
+        .content {
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>BoneX</h1>
+            <p>AI-Powered X-ray Analysis</p>
+        </div>
+        <div class="content">
+            <h2>Hello {{name}},</h2>
+            <p>Thank you for signing up with BoneX. To complete your registration and verify your email address, please click the button below:</p>
+            <p style="text-align: center;"><a class="cta-button" href="{{action_url}}">Confirm Email</a></p>
+            <p>If you didn’t request this, you can safely ignore this email.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2025 BoneX. All rights reserved.<br>bonex.ai.team@gmail.com</p>
+        </div>
+    </div>
+</body>
+</html>
