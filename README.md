@@ -62,8 +62,7 @@ At **BoneX**, user experience is a top priority, featuring:
 <img width="1280" height="720" alt="doctor availability" src="https://github.com/user-attachments/assets/c356a5b1-f19a-4ff1-9732-e682e7633c7c" />
 <img width="1280" height="720" alt="doctor1p1" src="https://github.com/user-attachments/assets/8ae1f48a-00ec-491b-814b-a707a03c4df5" />
 <img width="1280" height="720" alt="doctor1p2" src="https://github.com/user-attachments/assets/95be3096-e31a-4306-a8e9-827c3f9743ff" />
-<img width="1280" height="720" alt="doctor2p1" src="https://github.com/user-attachments/assets/5a638f09-b259-4181-b373-33f8fe89d79f" />
-<img width="1280" height="720" alt="doctor2p2" src="https://github.com/user-attachments/assets/d52d56fd-4eca-4098-ab1a-1be55c4f64fd" />
+
 
 
 
