@@ -45,9 +45,7 @@ At **BoneX**, user experience is a top priority, featuring:
 <img width="1280" height="720" alt="login" src="https://github.com/user-attachments/assets/e3a638cd-5880-49ae-883f-a6913e3953bf" />
 <img width="1280" height="720" alt="doctorpagep1" src="https://github.com/user-attachments/assets/0305951f-211b-4baa-be7e-0f621dba2bc5" />
 <img width="1280" height="720" alt="homepatientp3" src="https://github.com/user-attachments/assets/fd463269-c502-4f66-871f-749d13fa5420" />
-<img width="1280" height="720" alt="doctorjomep2" src="https://github.com/user-attachments/assets/3cb6940b-4806-4ffd-b003-6f40e888fcf0" />
 <img width="1280" height="720" alt="doctorlistpage" src="https://github.com/user-attachments/assets/16b04058-5bd3-4e89-bd28-1851a79e6706" />
-<img width="1280" height="720" alt="doctorlistpageP1" src="https://github.com/user-attachments/assets/fc8eacd8-fac6-4b15-bfdc-629793336f4e" />
 <img width="1280" height="720" alt="editappointment" src="https://github.com/user-attachments/assets/9033df5b-bfda-48fe-a1ef-157f6339d8a3" />
 <img width="1280" height="720" alt="FeedbackForm" src="https://github.com/user-attachments/assets/1e2e9e99-bdc9-4f5f-9463-2704d13e32b4" />
 <img width="1280" height="720" alt="homepatientp2" src="https://github.com/user-attachments/assets/4a4d72d5-9e32-4102-9c93-8b14ab0352c8" />
@@ -66,9 +64,6 @@ At **BoneX**, user experience is a top priority, featuring:
 <img width="1280" height="720" alt="doctor1p2" src="https://github.com/user-attachments/assets/95be3096-e31a-4306-a8e9-827c3f9743ff" />
 <img width="1280" height="720" alt="doctor2p1" src="https://github.com/user-attachments/assets/5a638f09-b259-4181-b373-33f8fe89d79f" />
 <img width="1280" height="720" alt="doctor2p2" src="https://github.com/user-attachments/assets/d52d56fd-4eca-4098-ab1a-1be55c4f64fd" />
-<img width="1280" height="720" alt="doctor3p1" src="https://github.com/user-attachments/assets/623009c8-b647-40e4-aeee-763547bdd045" />
-<img width="1280" height="720" alt="doctor3p2" src="https://github.com/user-attachments/assets/db788e2d-e0f1-4cf1-8c0d-7e88cc419ba4" />
-
 
 
 
